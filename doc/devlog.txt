@@ -1,3 +1,6 @@
 Team JoseMad
 Sofdev1 pd1
 P02 -- Devlog
+
+prathamR -- 2020-01-07 08:17
+Add devlog updating script
