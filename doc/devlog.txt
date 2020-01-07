@@ -4,3 +4,6 @@ P02 -- Devlog
 
 prathamR -- 2020-01-07 08:17
 Add devlog updating script
+
+prathamR -- 2020-01-07 08:49
+Add index file and other base code
