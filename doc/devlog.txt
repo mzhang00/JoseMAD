@@ -10,3 +10,14 @@ Add devlog updating script
 
 prathamR -- 2020-01-07 08:49
 Add index file and other base code
+
+zhangM -- 2020-01-07 21:34
+Update devlog:
+- Elaborate on the uses and functionality of waffles
+- Elaborate on the purpose of having private QAF functionality
+- Fix missing pieces of database scheme
+- Print double sided this time
+- Elaborate slightly on the contents of main.py
+
+prathamR -- 2020-01-08 00:12
+Update devlog
