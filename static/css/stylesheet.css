@@ -1,0 +1,30 @@
+a {
+  border: 0px;
+  padding: 0px;
+}
+li {
+  border: 0px;
+  padding: 0px;
+}
+.button {
+  border-radius: 5px;
+}
+.button-group {
+  margin: auto;
+}
+.title-bar {
+  text-align: center;
+}
+h3 {
+  margin: auto;
+}
+h4 {
+  margin: auto;
+}
+img {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* #thumbnail-container {
+  padding: auto;
+} */

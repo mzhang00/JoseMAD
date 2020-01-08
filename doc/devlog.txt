@@ -24,3 +24,6 @@ Update devlog
 
 jesseC -- 2020-01-08 08:37
 Made the db_builder.py template. Will put the table creating code in later.
+
+prathamR -- 2020-01-08 14:50
+Work on welcome page
