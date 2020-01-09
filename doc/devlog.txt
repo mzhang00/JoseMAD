@@ -27,3 +27,6 @@ Made the db_builder.py template. Will put the table creating code in later.
 
 prathamR -- 2020-01-08 14:50
 Work on welcome page
+
+jesseC -- 2020-01-09 08:18
+db_builder.py is created. It creates all the tables we need so that the rest of the website can utilize it. Will now work on functions relating to the database for easy access and storage.
