@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+  </head>
+  <body>
+    {% block flashes %}
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+            <br>
+                {% for category, message in messages %}
+                    <div role = "alert" style="margin-bottom:0">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    {% endblock flashes %}
+
+    {% block content %}
+    {% endblock content %}
+  </body>
+</html>
