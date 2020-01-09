@@ -1,10 +1,18 @@
+body {
+  font-family: 'Overpass', sans-serif;
+}
 a {
   border: 0px;
   padding: 0px;
+  font-family: 'Overpass', sans-serif;
 }
 li {
   border: 0px;
   padding: 0px;
+}
+.top-bar {
+  position: fixed;
+  width: 100%;
 }
 .button {
   border-radius: 5px;
@@ -15,11 +23,25 @@ li {
 .title-bar {
   text-align: center;
 }
+h1 {
+  margin: auto;
+  font-family: 'Overpass', sans-serif;
+  text-align: center;
+}
+
 h3 {
   margin: auto;
+  font-family: 'Overpass', sans-serif;
 }
 h4 {
   margin: auto;
+  font-family: 'Overpass', sans-serif;
+  text-align: center;
+}
+h5 {
+  margin: auto;
+  text-align: center;
+  font-family: 'Overpass', sans-serif;
 }
 img {
   margin-left: auto;
