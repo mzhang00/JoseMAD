@@ -31,5 +31,9 @@ Work on welcome page
 jesseC -- 2020-01-09 08:18
 db_builder.py is created. It creates all the tables we need so that the rest of the website can utilize it. Will now work on functions relating to the database for easy access and storage.
 
+zhangM -- 2020-01-09 08:30
+Add plain html files for login and signup
+Add routes for login and signup
+
 linM -- 2020-01-09 08:33
 made classes for each table
