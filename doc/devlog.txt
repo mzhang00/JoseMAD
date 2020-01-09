@@ -40,3 +40,6 @@ made classes for each table
 
 jesseC -- 2020-01-09 08:38
 Made class files for all the tables in the database, under /utl
+
+linM -- 2020-01-09 08:40
+made base template
