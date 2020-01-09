@@ -9,26 +9,31 @@ import csv
 
 DB_FILE= "data/qaffle_data.db"
 
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor()               #facilitate db ops
+
+def execute(cmd):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    output = c.execute(cmd)
+    db.commit()
+    return output
 
 #================================================
 
 # Users table
 users_command = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT, waffles INT, qafs_joined BLOB)"
-c.execute(users_command)
+execute(users_command)
 
 # Posts table (per QAF)
-posts_command = "CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY, author_id INTEGER, title TEXT, content TEXT, qaf_id INTEGER, time_created BLOB)"
-c.execute(posts_command)
+posts_command = "CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY, author_id INTEGER, title TEXT, content TEXT, qaf_id INTEGER, time_created DATETIME DEFAULT CURRENT_TIMESTAMP)"
+execute(posts_command)
 
 # Comments table (per QAF post)
-comments_command = "CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY, author_id INTEGER, content TEXT, post_id INTEGER, qaf_id INTEGER, time_created BLOB)"
-c.execute(comments_command)
+comments_command = "CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY, author_id INTEGER, content TEXT, post_id INTEGER, qaf_id INTEGER, time_created DATETIME DEFAULT CURRENT_TIMESTAMP)"
+execute(comments_command)
 
 # QAF table (containing all QAFs)
 qafs_command = "CREATE TABLE IF NOT EXISTS qafs (id INTEGER PRIMARY KEY, name TEXT, owner_id INTEGER)"
-c.execute(qafs_command)
+execute(qafs_command)
 
 #================================================
 db.commit()
