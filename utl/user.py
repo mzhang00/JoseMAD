@@ -1,9 +1,9 @@
-from db_builder import execute
+from utl.db_builder import execute
 
 class User:
 
     def __init__(self, id):
-        command = 'SELECT * FROM user WHERE id={}'.format(id)
+        command = 'SELECT * FROM users WHERE id={}'.format(id)
         data = execute(command).fetchall()
         self.id = int(data[0][0])
         self.username = str(data[0][1])
@@ -13,20 +13,20 @@ class User:
     # checks if username exists
     @staticmethod
     def username_avaliable(username):
-        command = 'SELECT id FROM user WHERE username = "{}"'.format(username)
+        command = 'SELECT id FROM users WHERE username = "{}"'.format(username)
         data = execute(command).fetchall()
         return len(data) == 0
 
     # add user into database
     @staticmethod
     def new_user(username, password):
-        command = 'INSERT INTO user (username, password) VALUES ("{}", "{}")'.format(username, password)
+        command = 'INSERT INTO users (username, password, waffles) VALUES ("{}", "{}", 0)'.format(username, password)
         execute(command)
 
     # get user object by username
     @staticmethod
     def get_user(username):
-        command = 'SELECT id from user WHERE username = "{}"'.format(username)
+        command = 'SELECT id from users WHERE username = "{}"'.format(username)
         data = execute(command).fetchall()
         if len(data) == 0: # if no user exists with the username then return None
             return None

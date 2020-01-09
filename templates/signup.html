@@ -1,20 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<br> Create an account <br>
 <br>
-<form action='/signupcheck'>
-    New Username:
-    <br>
-    <input type="text" name="username">
-    <br>
-    New Password:
-    <br>
-    <input type="password" name="password">
-    <br>
-    <input type="submit" value="Create" name = "confirmation">
-</form>
-<form action = '/'>
-    <button type = "submit"> Back </button>
-</form>
+    <form class="form-group" method="post">
+        <label for="username">Username:</label>
+        <input class="form-control-sm" id="username" name="username" type="text"><br><br>
+
+        <label for="password">Password:</label>
+        <input class="form-control-sm" id="password" name="password" type="password"><br><br>
+
+        <label for="password_repeat">Repeat Password:</label>
+        <input class="form-control-sm" id="password_repeat" name="password_repeat" type="password"><br><br>
+
+        <input class="btn-sm" type="submit" value="Sign Up!">
+    </form>
 {% endblock content %}

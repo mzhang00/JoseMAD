@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Login</h1>
-<form action='/auth'>
-  Username:
-  <br>
-  <input type="text" name="username">
-  <br>
-  Password:
-  <br>
-  <input type="password" name="password">
-  <br>
-  <input type="submit" value="Login">
-</form>
-<form action='/signup'>
-  <input type="submit" value="Create an account">
-</form>
+<br>
+    <form class="form-group" method="post">
+        <label for="username">Username:</label>
+        <input class="form-control-sm" id="username" name="username" type="text"><br><br>
+
+        <label for="password">Password:</label>
+        <input class="form-control-sm" id="password" name="password" type="password"><br><br>
+
+        <input class="btn-sm" type="submit" value="Log In!"> <br><br>
+    </form>
 {% endblock content %}

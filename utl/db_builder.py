@@ -7,7 +7,7 @@
 import sqlite3   #enable control of an sqlite database
 import csv
 
-DB_FILE= "data/qaffle_data.db"
+DB_FILE= "qaffle_data.db"
 
 
 def execute(cmd):
@@ -34,7 +34,3 @@ execute(comments_command)
 # QAF table (containing all QAFs)
 qafs_command = "CREATE TABLE IF NOT EXISTS qafs (id INTEGER PRIMARY KEY, name TEXT, owner_id INTEGER)"
 execute(qafs_command)
-
-#================================================
-db.commit()
-db.close()
