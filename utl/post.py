@@ -13,7 +13,6 @@ class Post:
         self.time_created = int(data[0][5])
 
 
-    # add user into database
     @staticmethod
     def new_post(author_id, title, content, qaf_id):
         command = 'INSERT INTO posts (author_id, title, content, qaf_id) VALUES ("{}", "{}", "{}", {})'.format(author_id, title, content, qaf_id)

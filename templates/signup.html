@@ -1,26 +1,20 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-      <title>
-      Sign Up
-      </title>
-  </head>
-  <body>
-    <br> Create an account <br>
+{% extends "base.html" %}
+
+{% block content %}
+<br> Create an account <br>
+<br>
+<form action='/signupcheck'>
+    New Username:
     <br>
-    <form action='/signupcheck'>
-        New Username:
-        <br>
-        <input type="text" name="username">
-        <br>
-        New Password:
-        <br>
-        <input type="password" name="password">
-        <br>
-        <input type="submit" value="Create" name = "confirmation">
-    </form>
-    <form action = '/'>
-        <button type = "submit"> Back </button>
-    </form>
-  </body>
-</html>
+    <input type="text" name="username">
+    <br>
+    New Password:
+    <br>
+    <input type="password" name="password">
+    <br>
+    <input type="submit" value="Create" name = "confirmation">
+</form>
+<form action = '/'>
+    <button type = "submit"> Back </button>
+</form>
+{% endblock content %}
