@@ -67,3 +67,6 @@ Change references of utl/ to util
 
 prathamR -- 2020-01-10 08:19
 Oops update one more reference
+
+jesseC -- 2020-01-10 08:33
+Created __init__ for comments and qafs classes and fixed up user.py

@@ -1,4 +1,4 @@
-from util.db_builder import execute
+from utl.db_builder import execute
 
 class User:
 
@@ -9,6 +9,7 @@ class User:
         self.username = str(data[0][1])
         self.password = str(data[0][2])
         self.waffles = int(data[0][3])
+        self.qafs_joined = str(data[0][4])
 
     # checks if username exists
     @staticmethod
@@ -31,4 +32,4 @@ class User:
         if len(data) == 0: # if no user exists with the username then return None
             return None
         else:
-            return User(data[0][0]) #returns user oobject
+            return User(data[0][0]) #returns user object
