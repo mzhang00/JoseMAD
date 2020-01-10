@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>{{title}}</title>
+    {% block styling %}
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css">
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"></script>
+    <!-- Our own StyleSheet -->
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <!-- Custom Font -->
+    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+    {% endblock %}
   </head>
   <body>
     {% block flashes %}

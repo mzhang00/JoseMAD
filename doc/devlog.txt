@@ -52,3 +52,6 @@ worked on login/signup
 
 prathamR -- 2020-01-09 19:14
 Rename utl/ to util/
+
+prathamR -- 2020-01-09 22:33
+Add styling to base template
