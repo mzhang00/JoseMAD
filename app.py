@@ -10,11 +10,21 @@ c = db.cursor()               #facilitate db ops
 
 app.secret_key = os.urandom(32)
 
+<<<<<<< Updated upstream
 @app.route("/")
 def root():
     # if 'username' in session:
     #     return redirect('/menu')
     return redirect('/login')
+=======
+@app.route('/' methods=['GET', 'POST'])
+def root():
+    return redirect("home")
+
+@app.route('/home')
+def home():
+    return render_template("welcome.html")
+>>>>>>> Stashed changes
 
 # @app.route('/logout')
 # def logout():
