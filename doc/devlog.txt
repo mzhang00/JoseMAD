@@ -70,3 +70,6 @@ Oops update one more reference
 
 jesseC -- 2020-01-10 08:33
 Created __init__ for comments and qafs classes and fixed up user.py
+
+linM -- 2020-01-10 08:43
+working on routing and new pages
