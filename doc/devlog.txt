@@ -55,3 +55,6 @@ Rename utl/ to util/
 
 prathamR -- 2020-01-09 22:33
 Add styling to base template
+
+prathamR -- 2020-01-10 02:03
+Add new site color theme (its pretty sexy ngl)

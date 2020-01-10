@@ -1,8 +1,16 @@
+html {
+  color: white;
+  background-color: black;
+}
 body {
   font-family: 'Overpass', sans-serif;
+  background-color: RGB(15, 15, 15);
+  color: indigo;
 }
 a {
   border: 0px;
+
+  border-color: indigo;
   padding: 0px;
   font-family: 'Overpass', sans-serif;
 }
@@ -11,10 +19,16 @@ li {
   padding: 0px;
 }
 .top-bar {
+  background-color: black;
   position: fixed;
   width: 100%;
 }
 .button {
+  background-color: indigo;
+  border-radius: 5px;
+}
+.button:hover {
+  background-color: rebeccapurple;
   border-radius: 5px;
 }
 .button-group {
@@ -24,16 +38,19 @@ li {
   text-align: center;
 }
 h1 {
+  color: indigo;
   margin: auto;
   font-family: 'Overpass', sans-serif;
   text-align: center;
 }
 
 h3 {
+  color: indigo;
   margin: auto;
   font-family: 'Overpass', sans-serif;
 }
 h4 {
+  color: indigo;
   margin: auto;
   font-family: 'Overpass', sans-serif;
   text-align: center;
