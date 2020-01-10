@@ -58,3 +58,6 @@ Add styling to base template
 
 prathamR -- 2020-01-10 02:03
 Add new site color theme (its pretty sexy ngl)
+
+prathamR -- 2020-01-10 07:59
+Update README to specs
