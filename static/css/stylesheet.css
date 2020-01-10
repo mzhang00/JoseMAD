@@ -1,16 +1,14 @@
 html {
-  color: white;
-  background-color: black;
 }
 body {
   font-family: 'Overpass', sans-serif;
   background-color: RGB(15, 15, 15);
-  color: indigo;
+  color: fuchsia;
 }
 a {
   border: 0px;
 
-  border-color: indigo;
+  border-color: fuchsia;
   padding: 0px;
   font-family: 'Overpass', sans-serif;
 }
@@ -24,11 +22,11 @@ li {
   width: 100%;
 }
 .button {
-  background-color: indigo;
+  background-color: fuchsia;
   border-radius: 5px;
 }
 .button:hover {
-  background-color: rebeccapurple;
+  background-color: orchid;
   border-radius: 5px;
 }
 .button-group {
@@ -38,19 +36,19 @@ li {
   text-align: center;
 }
 h1 {
-  color: indigo;
+  color: fuchsia;
   margin: auto;
   font-family: 'Overpass', sans-serif;
   text-align: center;
 }
 
 h3 {
-  color: indigo;
+  color: fuchsia;
   margin: auto;
   font-family: 'Overpass', sans-serif;
 }
 h4 {
-  color: indigo;
+  color: fuchsia;
   margin: auto;
   font-family: 'Overpass', sans-serif;
   text-align: center;

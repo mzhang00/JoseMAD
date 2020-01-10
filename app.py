@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 import os
 import urllib, json, sqlite3
-from utl.user import User
+from util.user import User
 from json import loads
 app = Flask(__name__)
 
