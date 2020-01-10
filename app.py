@@ -15,8 +15,14 @@ def current_user():
 @app.route('/')
 @app.route('/home')
 def home():
-    return "TEST"
+    return render_template("index.html", title = "Home")
 
+@app.route('/my_posts')
+def my_posts():
+    if current_user() == None: # have to be logged in to make an entry
+      flash('You must be logged in to access this page', 'warning')
+      return redirect( url_for( 'login'))
+    return render_template("my_posts.html", title = "My Posts")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
