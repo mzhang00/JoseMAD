@@ -2,13 +2,25 @@
 
 {% block content %}
 <br>
+<br>
+<br>
+<br>
+<br>
+<div class="grid-x">
+  <div class="small-6 small-offset-3 formBorder">
+    <div class="row small-12">
+      <h3 class="columns small-12">Log In to your QAF Experience</h3>
+    </div>
+    <br>
+    <br>
     <form class="form-group" method="post">
         <label for="username">Username:</label>
-        <input class="form-control-sm" id="username" name="username" type="text"><br><br>
-
+        <input class="textInput" id="username" name="username" type="text"><br>
         <label for="password">Password:</label>
-        <input class="form-control-sm" id="password" name="password" type="password"><br><br>
-
-        <input class="btn-sm" type="submit" value="Log In!"> <br><br>
+        <input class="textInput" id="password" name="password" type="password"><br>
+        <input class="expanded button" type="submit" value="Log In!">
+        <a href="/signup">Don't have an account? Sign up now!</a>
     </form>
+  </div>
+</div>
 {% endblock content %}
