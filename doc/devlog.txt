@@ -76,3 +76,6 @@ working on routing and new pages
 
 prathamR -- 2020-01-10 08:51
 Update styling on Login and Signup pages
+
+prathamR -- 2020-01-11 15:15
+Move index.html and fix welcome page
