@@ -15,14 +15,14 @@ def current_user():
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("index.html", title = "Home")
+    return render_template("index.html", title = "WELCOME TO QAFFLE", current_user = current_user())
 
 @app.route('/my_posts')
 def my_posts():
     if current_user() == None: # have to be logged in to make an entry
       flash('You must be logged in to access this page', 'warning')
       return redirect( url_for( 'login'))
-    return render_template("my_posts.html", title = "My Posts")
+    return render_template("my_posts.html", title = "My Posts", current_user = current_user())
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -53,7 +53,7 @@ def login():
             message = 'Successfully logged in'
             flash(message, 'success')
             return redirect(url_for('home'))
-    return render_template("login.html", title = "Log In",)
+    return render_template("login.html", title = "Log In", current_user = current_user())
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -81,7 +81,7 @@ def signup():
             User.new_user(username, password)
             flash("Account successfully created!", "success")
             return redirect('login')
-    return render_template('signup.html', title = 'Sign Up')
+    return render_template('signup.html', title = 'Sign Up', current_user = current_user())
 
 if __name__ == "__main__":
     app.debug = True

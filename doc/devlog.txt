@@ -79,3 +79,6 @@ Update styling on Login and Signup pages
 
 prathamR -- 2020-01-11 15:15
 Move index.html and fix welcome page
+
+linM -- 2020-01-12 13:32
+added current user variable when rendering template

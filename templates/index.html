@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Welcome to QAFFLE</title>
-    <!-- Compressed CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css">
-    <!-- Compressed JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"></script>
-    <!-- Our own StyleSheet -->
-    <link rel="stylesheet" href="../static/css/stylesheet.css">
-    <!-- Custom Font -->
-    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
-  </head>
+{% extends "base.html" %}
+{% block content %}
   <body>
     <div class="top-bar grid-x">
       <div class="top-bar-left grid-x">
@@ -19,10 +7,14 @@
         <span class="columns small-11"></span>
       </div>
       <div class="top-bar-right small-2 ">
+        {% if current_user is none %}
         <div class="button-group grid-x">
           <a class="button small-5"href="/login">Login</a>
           <div class="small-1"></div>
           <a class="button small-5"href="/signup">Sign Up</a>
+        {% else %}
+          Currently logged in as: {{ current_user.username }}
+        {% endif %}
       </div>
     </div>
   </div>
@@ -62,4 +54,4 @@
   <br>
   <br>
   </body>
-</html>
+{% endblock content%}
