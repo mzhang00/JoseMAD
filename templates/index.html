@@ -22,6 +22,16 @@
   <br>
   <br>
   <br>
+  {% with messages = get_flashed_messages(with_categories = true) %}
+      {% if messages %}
+      <br>
+          {% for category, message in messages %}
+              <div class="callout alert">
+                  {{message}}
+              </div>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
   <div class="grid-x">
     <h1 class="columns small-12">Welcome to QAFFLE</h1>
   </div>
