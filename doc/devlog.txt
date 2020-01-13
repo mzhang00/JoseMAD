@@ -85,3 +85,7 @@ added current user variable when rendering template
 
 prathamR -- 2020-01-13 00:58
 Add alerts to login and signup page
+
+zhangM -- 2020-01-13 02:37
+Add welcome page for login to redirect to
+Add check for logged in user to redirect them straight into the welcome page
