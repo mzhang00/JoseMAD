@@ -13,6 +13,15 @@ def current_user():
     return None
 
 @app.route('/')
+def root():
+    if current_user() != None:
+        return redirect('/welcome')
+    return redirect('/home')
+
+@app.route('/welcome')
+def welcome():
+    return render_template("home.html")
+
 @app.route('/home')
 def home():
     return render_template("index.html", title = "WELCOME TO QAFFLE", current_user = current_user())
@@ -52,7 +61,7 @@ def login():
             session['user_id'] = to_login.id
             message = 'Successfully logged in'
             flash(message, 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('welcome'))
     return render_template("login.html", title = "Log In", current_user = current_user())
 
 @app.route('/signup', methods=['GET', 'POST'])
