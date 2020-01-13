@@ -101,3 +101,6 @@ fixed devlog merge conflict
 
 prathamR -- 2020-01-13 08:43
 Add basic settings.html
+
+zhangM -- 2020-01-13 08:39
+Implement Logout feature
