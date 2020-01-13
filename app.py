@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 import os
 import urllib, json, sqlite3
 from util.user import User
+from util.post import Post
+#from util.qaf import Qaf
 from json import loads
 app = Flask(__name__)
 
@@ -42,6 +44,18 @@ def my_posts():
       flash('You must be logged in to access this page', 'warning')
       return redirect( url_for( 'login'))
     return render_template("my_posts.html", title = "My Posts", current_user = current_user())
+
+@app.route('/create_qaf', methods=['GET', 'POST'])
+def create_post():
+    if current_user() == None: # have to be logged in to make an entry
+        flash('You must log in to access this page')
+        return redirect( url_for( 'login'))
+    if (request.form):
+        entry = request.form
+        #Qaf.new_qaf(entry['name'], current_user().id)
+        flash("QAF created successfully")
+        return redirect(url_for('welcome'))
+    return render_template('create_qaf.html', title = "Create QAF", current_user = current_user())
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

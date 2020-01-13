@@ -1,7 +1,7 @@
-from db_builder import execute
+from util.db_builder import execute
 
 class QAF:
-	
+
 	def __init__(self, id):
 		command = 'SELECT * FROM qafs WHERE id={}'.format(id)
 		data = execute(command).fetchall()
