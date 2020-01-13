@@ -98,3 +98,6 @@ Add basic buttons to homepage
 
 jesseC -- 2020-01-13 08:26
 fixed devlog merge conflict
+
+prathamR -- 2020-01-13 08:43
+Add basic settings.html
