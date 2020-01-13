@@ -18,6 +18,10 @@ def root():
         return redirect('/welcome')
     return redirect('/home')
 
+@app.route('/shop')
+def shop():
+    return render_template("shop.html")
+
 @app.route('/welcome')
 def welcome():
     return render_template("home.html")

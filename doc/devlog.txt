@@ -107,3 +107,6 @@ Implement Logout feature
 
 prathamR -- 2020-01-13 08:51
 Add basic scripting for JS input
+
+zhangM -- 2020-01-13 08:44
+Added basic html page and route for shop; needs features to be implemented
