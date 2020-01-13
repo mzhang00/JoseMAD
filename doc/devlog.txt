@@ -104,3 +104,9 @@ Add basic settings.html
 
 linM -- 2020-01-13 08:43
 created new route for new qaf
+
+zhangM -- 2020-01-13 08:39
+Implement Logout feature
+
+zhangM -- 2020-01-13 08:44
+Added basic html page and route for shop; needs features to be implemented

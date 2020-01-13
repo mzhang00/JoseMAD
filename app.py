@@ -20,9 +20,19 @@ def root():
         return redirect('/welcome')
     return redirect('/home')
 
+@app.route('/shop')
+def shop():
+    return render_template("shop.html")
+
 @app.route('/welcome')
 def welcome():
     return render_template("home.html")
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('You were successfully logged out.', 'alert-success')
+    return redirect('/')
 
 @app.route('/home')
 def home():
@@ -63,6 +73,8 @@ def login():
         to_login = User.get_user(username) # gets user object using username
 
         auth_valid = True
+
+        #TODO:Update the 'danger' and 'success' tags for foundation (not bootstrap)
 
         if to_login is None: # if a user with that username doesn't exist
             flash('That username does not belong to a registered account!','danger')
