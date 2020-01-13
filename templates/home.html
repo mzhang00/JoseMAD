@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="grid-x">
+  <input type="text" id="qafsearch" name="search" value="Search QAFs">
   <a class="button" href="/logout">Logout</a>
   <a class="button" href="/settings">Settings</a>
   <a class="button" href="/qaf">QAF</a>
@@ -9,8 +10,13 @@
 {% endblock content%}
 
 <script type="text/javascript">
-  var db = sqllite3.Database('./qaffle_data.db');
+  const sqlite3 = require('sqlite3').verbose();
 
-  
+  var db = sqllite3.Database('./qaffle_data.db', sqlite3.OPEN_CREATE);
+
+  document.getElementById('qafsearch').addEventListener('input', function functionName() {
+    
+  });
+
 
 </script>
