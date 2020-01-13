@@ -89,3 +89,6 @@ Add alerts to login and signup page
 zhangM -- 2020-01-13 02:37
 Add welcome page for login to redirect to
 Add check for logged in user to redirect them straight into the welcome page
+
+jesseC -- 2020-01-13 08:23
+Add functions to create comments and qafs into the db

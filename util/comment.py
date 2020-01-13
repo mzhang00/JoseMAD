@@ -11,3 +11,11 @@ class Comment:
 		self.post_id = int(data[0][3])
 		self.qaf_id = int(data[0][4])
 		self.time_created = str(data[0][5])
+
+		# add comment into database
+		@staticmethod
+		def new_comment(author_id, content, post_id, qaf_id):
+			command = 'INSERT INTO comments (author_id, content, post_id, qaf_id) VALUES ("{}", "{}","{}","{}")'.format(author_id, content, post_id, qaf_id)
+			execute(command)
+
+			
