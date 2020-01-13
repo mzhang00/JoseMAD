@@ -82,3 +82,6 @@ Move index.html and fix welcome page
 
 linM -- 2020-01-12 13:32
 added current user variable when rendering template
+
+prathamR -- 2020-01-13 00:58
+Add alerts to login and signup page

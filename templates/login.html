@@ -12,6 +12,16 @@
       <h3 class="columns small-12">Log In to your QAF Experience</h3>
     </div>
     <br>
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+        <br>
+            {% for category, message in messages %}
+                <div class="callout alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <br>
     <form class="form-group" method="post">
         <label for="username">Username:</label>
