@@ -63,9 +63,23 @@ def create_qaf():
         return redirect(url_for('welcome'))
     return render_template('create_qaf.html', title = "Create QAF", current_user = current_user())
 
-@app.route("/settings")
+@app.route("/settings", methods=['GET','POST'])
 def settings():
-    return render_template('settings.html');
+    if current_user() == None: # have to be logged in to change settings
+        flash('You must log in to access this page')
+        return redirect(url_for('login'))
+    form = request.form.keys()
+    if 'oldpass' in form and 'newpass' in form and 'confirm' in form:
+        entry = request.form
+        if entry['newpass'] != entry['confirm']:
+            flash("Confirmation password does not match. Please resubmit!")
+        elif current_user().password != entry['oldpass']:
+            flash("Old password does not match. Please resubmit!")
+        else:
+            current_user().change_password(entry['newpass'])
+            flash("Password updated successfully!")
+            return redirect(url_for('settings'))
+    return render_template('settings.html')
 
 @app.route("/qaf/<id>", methods=['GET', 'POST'])
 def show_qaf(id):

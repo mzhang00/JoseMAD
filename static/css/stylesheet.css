@@ -82,6 +82,12 @@ label {
 .textInput:active {
   background-color: black;
 }
+.top-bar {
+  z-index: 0;
+}
+.callout.alert {
+  z-index: 1;
+}
 /* #thumbnail-container {
   padding: auto;
 } */
