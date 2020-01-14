@@ -18,6 +18,11 @@ class User:
                     WHERE id = {}'.format(qaf_id, self.id)
         execute(command)
 
+    def change_password(self, new_pass):
+        command = 'UPDATE users \
+                    SET password = "{}," \
+                    WHERE id = {}'.format(new_pass, self.id)
+
     # checks if username exists
     @staticmethod
     def username_avaliable(username):

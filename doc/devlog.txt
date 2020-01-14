@@ -137,3 +137,6 @@ update with navbars on every page
 
 zhangM -- 2020-01-14 08:37
 update design doc with new colomn in the qaf's table
+
+jesseC -- 2020-01-14 08:42
+Added the settings route, will work on it some more.
