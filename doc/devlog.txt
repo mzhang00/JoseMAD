@@ -131,3 +131,6 @@ update api pdf name
 
 prathamR -- 2020-01-14 08:31
 Fix styling on homepage
+
+prathamR -- 2020-01-14 08:48
+update with navbars on every page
