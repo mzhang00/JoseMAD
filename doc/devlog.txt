@@ -126,8 +126,11 @@ clean up settings.html and add routing to that page
 prathamR -- 2020-01-13 23:46
 Clean up settings page
 
-zhangM -- 2020-01-14 08:17
+zhangM -- 2020-01-13 08:17
 update api pdf name
 
 prathamR -- 2020-01-14 08:31
 Fix styling on homepage
+
+zhangM -- 2020-01-14 08:37
+update design doc with new colomn in the qaf's table
