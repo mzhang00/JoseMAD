@@ -1,3 +1,11 @@
+# TO DO LIST
+
+# Add private/public mode for qafs into the database -JC
+# Finish settings backend -JC
+# Interate quotes api onto homepage - MZ
+# Fix flashed messages overlapping navbar - PR
+
+
 # QUAFFLE by JoseMad
 ###### Jesse "McCree" Chen - Backend Database Design
 ###### Michael "William" Lin - Routing
