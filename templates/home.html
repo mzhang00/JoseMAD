@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="grid-x">
-  <input type="text" id="qafsearch" name="search" value="Search QAFs">
+  <input type="text" id="qafsearch" name="search" value="Search">
   <a class="button" href="/logout">Logout</a>
   <a class="button" href="/settings">Settings</a>
   <a class="button" href="/qaf">QAF</a>
@@ -18,16 +18,15 @@
   {%  endfor %}
 </ul>
 
-{% endblock content%}
-
 <script type="text/javascript">
-  const sqlite3 = require('sqlite3').verbose();
 
-  var db = sqllite3.Database('./qaffle_data.db', sqlite3.OPEN_CREATE);
-
+  console.log("yah yeet");
   document.getElementById('qafsearch').addEventListener('input', function functionName() {
-    
+    var transaction = db.transaction([], "readonly")
+    console.log("yah yeet");
   });
 
 
 </script>
+
+{% endblock content%}

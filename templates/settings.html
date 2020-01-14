@@ -1,12 +1,33 @@
-{% extends base.html %}
+{% extends "base.html" %}
 
 {% block content %}
 
-<form class="" action="index.html" method="post">
-  <input type="text" name="oldpass" value="">
-  <input type="text" name="newpass" value="">
-  <input type="text" name="confirm" value="">
-  <input type="submit" name="" value="Submit">
-</form>
+<br><br>
+<h1>Change Settings</h1>
+<br><br>
+<div class="grid-x">
+  <div class="formBorder small-8 small-offset-2">
+    <form class="grid-x" action="/updateSettings(or something)" method="post">
+      <br>
+      <h5>Enter Your Previous Password:</h5>
+      <input class="row" type="text" name="oldpass" value="">
+      <br>
+      <h5>Enter Your New Password:</h5>
+      <input class="row" type="text" name="newpass" value="">
+      <br>
+      <h5>Confirm Your New Password:</h5>
+      <input class="row" type="text" name="confirm" value="">
+      <br>
+      <br>
+      <input class="row button expanded" type="submit" name="" value="Submit">
+    </form>
+  </div>
+  <div class="">
+
+  </div>
+  <div class="small-offset-4 small-4">
+    <a class="expanded button" href="/welcome">Back</a>
+  </div>
+</div>
 
 {% endblock content %}

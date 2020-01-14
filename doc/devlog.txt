@@ -119,3 +119,6 @@ Add flashing to home page
 
 linM -- 2020-01-13 21:01
 now shows qafs created on home page and made template for each qaf
+
+prathamR -- 2020-01-13 23:04
+clean up settings.html and add routing to that page

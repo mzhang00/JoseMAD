@@ -63,6 +63,10 @@ def create_post():
         return redirect(url_for('welcome'))
     return render_template('create_qaf.html', title = "Create QAF", current_user = current_user())
 
+@app.route("/settings")
+def settings():
+    return render_template('settings.html');
+
 @app.route("/qaf/<id>", methods=['GET', 'POST'])
 def show_qaf(id):
     qaf = Qaf(id)
@@ -72,6 +76,8 @@ def show_qaf(id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     # check if form was submitted
+    if(current_user()):
+        return render_template("home.html");
     form = request.form.keys()
     if 'username' in form and 'password' in form:
         # read the data from the form
