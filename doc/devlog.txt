@@ -146,3 +146,6 @@ Made the flash in the homepage.
 
 linM -- 2020-01-14 09:56
 can now create posts for qafs
+
+prathamR -- 2020-01-14 17:00
+Lay foundations for QAF search functionality

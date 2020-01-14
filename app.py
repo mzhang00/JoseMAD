@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, url_for, flash
+from flask import Flask, render_template, request, session, redirect, url_for, flash, jsonify
 import os
 import urllib, json, sqlite3
 
@@ -38,6 +38,12 @@ def logout():
     session.clear()
     flash('You were successfully logged out.', 'alert-success')
     return redirect('/')
+
+@app.route("/qafSearch")
+def qafSearch():
+    input = request.args.get("input", 0, type=str)
+    print(input)
+    return input;
 
 @app.route('/home')
 def home():

@@ -26,16 +26,16 @@
           <a class="button small-5"href="/login">Login</a>
           <div class="small-1"></div>
           <a class="button small-5"href="/signup">Sign Up</a>
-        {% else %}
-          Currently logged in as: {{ current_user.username }}
+          {% else %}
+            Currently logged in as: {{ current_user.username }}
         {% endif %}
       </div>
+      </div>
     </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% block content %}
     {% endblock content %}
   </body>
