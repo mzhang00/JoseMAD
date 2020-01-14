@@ -140,3 +140,6 @@ update design doc with new colomn in the qaf's table
 
 jesseC -- 2020-01-14 08:42
 Added the settings route, will work on it some more.
+
+jesseC -- 2020-01-14 08:42
+Made the flash in the homepage.

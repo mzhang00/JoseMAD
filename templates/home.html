@@ -8,6 +8,17 @@
   <br>
   <br>
   <br>
+
+            {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+        <br>
+            {% for category, message in messages %}
+                <div class="callout alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
   <div class="small-4 small-offset-4 grid-x">
     <a class="expanded button row" href="/settings">Settings</a>
     <a class="expanded button row" href="/qaf">QAF</a>
