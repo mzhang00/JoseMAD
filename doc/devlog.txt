@@ -122,3 +122,6 @@ now shows qafs created on home page and made template for each qaf
 
 prathamR -- 2020-01-13 23:04
 clean up settings.html and add routing to that page
+
+prathamR -- 2020-01-13 23:46
+Clean up settings page
