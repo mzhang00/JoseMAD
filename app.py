@@ -77,7 +77,7 @@ def show_qaf(id):
 def login():
     # check if form was submitted
     if(current_user()):
-        return render_template("home.html");
+        return redirect('/welcome');
     form = request.form.keys()
     if 'username' in form and 'password' in form:
         # read the data from the form
