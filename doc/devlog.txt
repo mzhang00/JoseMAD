@@ -126,10 +126,6 @@ clean up settings.html and add routing to that page
 prathamR -- 2020-01-13 23:46
 Clean up settings page
 
-<<<<<<< HEAD
-linM -- 2020-01-14 09:56
-can now create posts for qafs
-=======
 zhangM -- 2020-01-13 08:17
 update api pdf name
 
@@ -147,4 +143,6 @@ Added the settings route, will work on it some more.
 
 jesseC -- 2020-01-14 08:42
 Made the flash in the homepage.
->>>>>>> b96aad48fa50f9df26f9a26e3c3e490110b430fa
+
+linM -- 2020-01-14 09:56
+can now create posts for qafs
