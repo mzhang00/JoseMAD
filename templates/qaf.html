@@ -3,6 +3,7 @@
 {% block content %}
     <h2>{{ qaf.name }}</h2>
     <br>
+    <a class="button" href="/qaf/{{qaf.id}}/create_post">Create Post</a><br>
     {% for post in posts %}
         {{post.content}}
         <br>

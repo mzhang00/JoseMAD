@@ -11,7 +11,7 @@ class User:
         self.waffles = int(data[0][3])
         self.qafs_joined = str(data[0][4])
 
-    
+
     def join_qaf(self, qaf_id):
         command = 'UPDATE users \
                     SET qafs_joined =  qafs_joined || "{}," \

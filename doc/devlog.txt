@@ -125,3 +125,6 @@ clean up settings.html and add routing to that page
 
 prathamR -- 2020-01-13 23:46
 Clean up settings page
+
+linM -- 2020-01-14 09:56
+can now create posts for qafs

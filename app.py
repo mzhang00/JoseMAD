@@ -51,7 +51,7 @@ def my_posts():
     return render_template("my_posts.html", title = "My Posts", current_user = current_user())
 
 @app.route('/create_qaf', methods=['GET', 'POST'])
-def create_post():
+def create_qaf():
     if current_user() == None: # have to be logged in to make an entry
         flash('You must log in to access this page')
         return redirect( url_for( 'login'))
@@ -71,7 +71,22 @@ def settings():
 def show_qaf(id):
     qaf = Qaf(id)
     posts = qaf.get_posts()
-    return render_template('qaf.html', current_user = current_user(), qaf = qaf, posts = posts)
+    return render_template('qaf.html', title = qaf.name,current_user = current_user(), qaf = qaf, posts = posts)
+
+@app.route("/qaf/<id>/create_post", methods=['GET', 'POST'])
+def create_post(id):
+    if current_user() == None: # have to be logged in to make an entry
+        flash('You must log in to access this page')
+        return redirect( url_for( 'login'))
+    if (request.form):
+        entry = request.form
+        Post.new_post(current_user().id,entry['title'],entry['content'],id)
+        return redirect("/qaf/"+str(id))
+    return render_template("create_post.html", title = "Create Post", current_user = current_user())
+
+@app.route("/qaf/<qaf_id>/<post_id>", methods=['GET', 'POST'])
+def show_post(qaf_id,post_id):
+    return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
