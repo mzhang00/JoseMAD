@@ -128,3 +128,6 @@ Clean up settings page
 
 zhangM -- 2020-01-14 08:17
 update api pdf name
+
+prathamR -- 2020-01-14 08:31
+Fix styling on homepage

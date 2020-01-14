@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="grid-x">
-  <input type="text" id="qafsearch" name="search" value="Search">
-  <a class="button" href="/logout">Logout</a>
-  <a class="button" href="/settings">Settings</a>
-  <a class="button" href="/qaf">QAF</a>
-  <a class="button" href="/shop">Shop</a>
-  <a class="button" href="/create_qaf">Create Qaf</a>
+  <div class="formBorder small-12">
+    <h3>Discover Your New QAF:</h3>
+    <input class="textInput" type="text" id="qafsearch" name="search" value="Search">
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="small-4 small-offset-4 grid-x">
+    <a class="expanded button row" href="/settings">Settings</a>
+    <a class="expanded button row" href="/qaf">QAF</a>
+    <a class="expanded button row" href="/shop">Shop</a>
+    <a class="expanded button row" href="/create_qaf">Create Qaf</a>
+    <a class="expanded button row" href="/logout">Logout</a>
+  </div>
 </div>
 
 <br>
