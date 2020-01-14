@@ -125,3 +125,6 @@ clean up settings.html and add routing to that page
 
 prathamR -- 2020-01-13 23:46
 Clean up settings page
+
+zhangM -- 2020-01-14 08:17
+update api pdf name
