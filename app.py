@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 import os
 import urllib, json, sqlite3
+
 from util.user import User
 from util.post import Post
-#from util.qaf import Qaf
+from util.qaf import Qaf
 from json import loads
 app = Flask(__name__)
 
@@ -22,11 +23,15 @@ def root():
 
 @app.route('/shop')
 def shop():
-    return render_template("shop.html")
+    return render_template("shop.html", current_user = current_user())
 
 @app.route('/welcome')
 def welcome():
-    return render_template("home.html")
+    if current_user() == None:
+        return redirect('/home')
+    qafs_joined = current_user().qafs_joined.split(',')[:-1]
+    qaf_list = [Qaf(qaf_id) for qaf_id in qafs_joined]
+    return render_template("home.html", current_user = current_user(), qaf_list = qaf_list)
 
 @app.route('/logout')
 def logout():
@@ -52,10 +57,17 @@ def create_post():
         return redirect( url_for( 'login'))
     if (request.form):
         entry = request.form
-        #Qaf.new_qaf(entry['name'], current_user().id)
+        new_qaf = Qaf.new_qaf(entry['name'], current_user().id)
+        current_user().join_qaf(new_qaf)
         flash("QAF created successfully")
         return redirect(url_for('welcome'))
     return render_template('create_qaf.html', title = "Create QAF", current_user = current_user())
+
+@app.route("/qaf/<id>", methods=['GET', 'POST'])
+def show_qaf(id):
+    qaf = Qaf(id)
+    posts = qaf.get_posts()
+    return render_template('qaf.html', current_user = current_user(), qaf = qaf, posts = posts)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

@@ -7,6 +7,17 @@
   <a class="button" href="/qaf">QAF</a>
   <a class="button" href="/shop">Shop</a>
 </div>
+
+<br>
+
+<ul>
+  {%  for qaf in qaf_list %}
+      <li>
+          <a href="{{ url_for('show_qaf', id=qaf.id) }}">{{ qaf.name }}</a>
+      </li>
+  {%  endfor %}
+</ul>
+
 {% endblock content%}
 
 <script type="text/javascript">

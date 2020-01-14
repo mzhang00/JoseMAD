@@ -20,7 +20,7 @@ def execute(cmd):
 #================================================
 
 # Users table
-users_command = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT, waffles INT, qafs_joined BLOB)"
+users_command = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT, waffles INT, qafs_joined TEXT)"
 execute(users_command)
 
 # Posts table (per QAF)

@@ -11,6 +11,13 @@ class User:
         self.waffles = int(data[0][3])
         self.qafs_joined = str(data[0][4])
 
+    
+    def join_qaf(self, qaf_id):
+        command = 'UPDATE users \
+                    SET qafs_joined =  qafs_joined || "{}," \
+                    WHERE id = {}'.format(qaf_id, self.id)
+        execute(command)
+
     # checks if username exists
     @staticmethod
     def username_avaliable(username):
@@ -21,7 +28,7 @@ class User:
     # add user into database
     @staticmethod
     def new_user(username, password):
-        command = 'INSERT INTO users (username, password, waffles) VALUES ("{}", "{}", 0)'.format(username, password)
+        command = 'INSERT INTO users (username, password, waffles, qafs_joined) VALUES ("{}", "{}", 0, "")'.format(username, password)
         execute(command)
 
     # get user object by username

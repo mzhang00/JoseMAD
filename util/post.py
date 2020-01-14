@@ -8,9 +8,9 @@ class Post:
         self.id = int(data[0][0])
         self.author_id = str(data[0][1])
         self.title = str(data[0][2])
-        self.content = int(data[0][3])
+        self.content = str(data[0][3])
         self.qaf_id = int(data[0][4])
-        self.time_created = int(data[0][5])
+        self.time_created = str(data[0][5])
 
 
     # add post into database
