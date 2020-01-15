@@ -149,3 +149,6 @@ can now create posts for qafs
 
 prathamR -- 2020-01-14 17:00
 Lay foundations for QAF search functionality
+
+prathamR -- 2020-01-14 20:32
+Finish dynamically updating search results on homepage

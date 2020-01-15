@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 import os
 import urllib, json, sqlite3
 
+from util.db_builder import execute
 from util.user import User
 from util.post import Post
 from util.qaf import Qaf
@@ -42,8 +43,11 @@ def logout():
 @app.route("/qafSearch")
 def qafSearch():
     input = request.args.get("input", 0, type=str)
-    print(input)
-    return input;
+    if(input == ""):
+        return jsonify(result = "");
+    output = execute(f"""SELECT * FROM 'qafs' WHERE name LIKE '%{input}%';""").fetchall()
+    print(output)
+    return jsonify(result = output);
 
 @app.route('/home')
 def home():
