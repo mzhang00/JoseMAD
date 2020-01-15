@@ -168,5 +168,11 @@ Fix errors with adding new QAFs that do not show, and style different sites
 linM -- 2020-01-14 23:07
 fixed bug with qafs joined
 
+jesseC -- 2020-01-15 08:21
+Settings page and back-end is finished.
+
+jesseC -- 2020-01-15 08:36
+Added new columns for upvote/downvote (called net_vote) in comments and posts.
+
 linM -- 2020-01-15 08:39
 tags now show

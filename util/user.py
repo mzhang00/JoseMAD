@@ -25,10 +25,12 @@ class User:
         qafs_joined = self.qafs_joined.split(',')[:-1]
         qaf_list = [Qaf(qaf_id) for qaf_id in qafs_joined]
         return qaf_list
+
     def change_password(self, new_pass):
         command = 'UPDATE users \
-                    SET password = "{}," \
+                    SET password = "{}" \
                     WHERE id = {}'.format(new_pass, self.id)
+        execute(command)
 
     # checks if username exists
     @staticmethod

@@ -14,6 +14,7 @@ class Post:
         self.qaf_id = int(data[0][4])
         self.tags = str(data[0][5]).split(',')
         self.time_created = str(data[0][6])
+        self.net_vote = int(data[0][7])
 
 
     def get_comments(self):
@@ -22,10 +23,22 @@ class Post:
         comments = []
         for comment_id in data:
             comments.append(Comment(comment_id[0]))
-        return comments
+
+    def upvoted(self):
+        command = 'UPDATE posts \
+                    SET net_vote = "{}" \
+                    WHERE id = {}'.format(self.net_vote + 1, self.id)
+        execute(command)
+
+    def downvoted(self):
+        command = 'UPDATE posts \
+                    SET net_vote = "{}" \
+                    WHERE id = {}'.format(self.net_vote - 1, self.id)
+        execute(command)
+
     # add post into database
     @staticmethod
     def new_post(author_id, title, content, qaf_id, tags):
-        command = f'INSERT INTO posts (author_id, title, content, qaf_id, tags) VALUES ("{author_id}", "{title}", "{content}", {qaf_id}, "{tags}")'
+        command = f'INSERT INTO posts (author_id, title, content, qaf_id, tags, net_vote) VALUES ("{author_id}", "{title}", "{content}", {qaf_id}, "{tags}", 0)'
         execute(command)
         util.user.User(author_id).join_qaf(qaf_id)
