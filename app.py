@@ -29,13 +29,13 @@ def root():
 
 @app.route('/shop')
 def shop():
-    return render_template("shop.html", title = "Shop", current_user = current_user())
+    return render_template("shop.html", title = "Shop")
 
 @app.route('/welcome')
 def welcome():
     if current_user() == None:
         return redirect('/home')
-    return render_template("home.html", title = "Welcome", current_user = current_user())
+    return render_template("home.html", title = "Welcome")
 
 @app.route('/logout')
 def logout():
@@ -54,14 +54,14 @@ def qafSearch():
 
 @app.route('/home')
 def home():
-    return render_template("index.html", title = "WELCOME TO QAFFLE", current_user = current_user())
+    return render_template("index.html", title = "WELCOME TO QAFFLE")
 
 @app.route('/my_posts')
 def my_posts():
     if current_user() == None: # have to be logged in to make an entry
       flash('You must be logged in to access this page', 'warning')
       return redirect( url_for( 'login'))
-    return render_template("my_posts.html", title = "My Posts", current_user = current_user())
+    return render_template("my_posts.html", title = "My Posts")
 
 @app.route("/settings", methods=['GET','POST'])
 def settings():
@@ -79,7 +79,7 @@ def settings():
             current_user().change_password(entry['newpass'])
             flash("Password updated successfully!")
             return redirect(url_for('settings'))
-    return render_template('settings.html', title = "Settings", current_user = current_user())
+    return render_template('settings.html', title = "Settings")
 
 @app.route('/my_qafs')
 def my_qafs():
@@ -87,7 +87,7 @@ def my_qafs():
       flash('You must be logged in to access this page', 'warning')
       return redirect( url_for( 'login'))
     qaf_list = current_user().get_qafs_joined()
-    return render_template("my_qafs.html", title = "My Qafs", qaf_list = qaf_list, current_user = current_user())
+    return render_template("my_qafs.html", title = "My Qafs", qaf_list = qaf_list)
     
 @app.route('/create_qaf', methods=['GET', 'POST'])
 def create_qaf():
@@ -100,7 +100,7 @@ def create_qaf():
         current_user().join_qaf(new_qaf)
         flash("QAF created successfully")
         return redirect(url_for('welcome'))
-    return render_template('create_qaf.html', title = "Create QAF", current_user = current_user())
+    return render_template('create_qaf.html', title = "Create QAF")
 
 @app.route("/qaf/<id>", methods=['GET', 'POST'])
 def show_qaf(id):
@@ -109,7 +109,7 @@ def show_qaf(id):
       return redirect( url_for( 'login'))
     qaf = Qaf(id)
     posts = qaf.get_posts()
-    return render_template('qaf.html', title = qaf.name,current_user = current_user(), qaf = qaf, posts = posts)
+    return render_template('qaf.html', title = qaf.name, qaf = qaf, posts = posts)
 
 @app.route("/qaf/<id>/create_post", methods=['GET', 'POST'])
 def create_post(id):
@@ -120,7 +120,7 @@ def create_post(id):
         entry = request.form
         Post.new_post(current_user().id,entry['title'],entry['content'],id)
         return redirect("/qaf/"+str(id))
-    return render_template("create_post.html", title = "Create Post", current_user = current_user())
+    return render_template("create_post.html", title = "Create Post")
 
 @app.route("/qaf/<qaf_id>/<post_id>", methods=['GET', 'POST'])
 def show_post(qaf_id,post_id):
@@ -132,7 +132,7 @@ def show_post(qaf_id,post_id):
         Comment.new_comment(current_user().id, entry['comment'], post_id, qaf_id)
     post = Post(post_id)
     comments = post.get_comments()
-    return render_template('post.html', title = post.title, current_user = current_user(), post = post, comments = comments)
+    return render_template('post.html', title = post.title, post = post, comments = comments)
 
 # @app.route("/qaf/<qaf_id>/<post_id>/create_comment", methods=['GET', 'POST'])
 # def create_comment(qaf_id,post_id):
@@ -172,7 +172,7 @@ def login():
             message = 'Successfully logged in'
             flash(message, 'success')
             return redirect(url_for('welcome'))
-    return render_template("login.html", title = "Log In", current_user = current_user())
+    return render_template("login.html", title = "Log In")
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -200,7 +200,7 @@ def signup():
             User.new_user(username, password)
             flash("Account successfully created!", "success")
             return redirect('login')
-    return render_template('signup.html', title = 'Sign Up', current_user = current_user())
+    return render_template('signup.html', title = 'Sign Up')
 
 if __name__ == "__main__":
     app.debug = True
