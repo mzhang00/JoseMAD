@@ -127,7 +127,7 @@ def show_post(qaf_id,post_id):
     if current_user() == None: 
       flash('You must be logged in to access this page', 'warning')
       return redirect( url_for( 'login'))
-    if (request.form):
+    if ('comment' in request.form):
         entry = request.form
         Comment.new_comment(current_user().id, entry['comment'], post_id, qaf_id)
     post = Post(post_id)
