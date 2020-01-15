@@ -17,6 +17,10 @@ def current_user():
         return User(session['user_id'])
     return None
 
+@app.context_processor
+def make_template_globals():
+    return dict(current_user=current_user())
+
 @app.route('/')
 def root():
     if current_user() != None:
@@ -50,9 +54,6 @@ def qafSearch():
 
 @app.route('/home')
 def home():
-    if current_user() == None: # have to be logged in to make an entry
-        flash('You must log in to access this page')
-        return redirect( url_for( 'login'))
     return render_template("index.html", title = "WELCOME TO QAFFLE", current_user = current_user())
 
 @app.route('/my_posts')
