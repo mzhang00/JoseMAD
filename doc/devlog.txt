@@ -185,3 +185,6 @@ attempted to fix indentation error. Small error.
 
 linM -- 2020-01-15 18:23
 changed front end a little
+
+linM -- 2020-01-15 18:30
+some typos in comment.py

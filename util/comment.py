@@ -1,5 +1,5 @@
 from util.db_builder import execute
-
+import util.user
 
 class Comment:
 
