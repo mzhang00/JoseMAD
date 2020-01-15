@@ -11,7 +11,8 @@ class Post:
         self.title = str(data[0][2])
         self.content = str(data[0][3])
         self.qaf_id = int(data[0][4])
-        self.time_created = str(data[0][5])
+        self.tags = str(data[0][5]).split(',')
+        self.time_created = str(data[0][6])
 
 
     def get_comments(self):
@@ -23,6 +24,6 @@ class Post:
         return comments
     # add post into database
     @staticmethod
-    def new_post(author_id, title, content, qaf_id):
-        command = 'INSERT INTO posts (author_id, title, content, qaf_id) VALUES ("{}", "{}", "{}", {})'.format(author_id, title, content, qaf_id)
+    def new_post(author_id, title, content, qaf_id, tags):
+        command = f'INSERT INTO posts (author_id, title, content, qaf_id, tags) VALUES ("{author_id}", "{title}", "{content}", {qaf_id}, "{tags}")'
         execute(command)

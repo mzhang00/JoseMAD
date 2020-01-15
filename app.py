@@ -99,7 +99,7 @@ def create_qaf():
         new_qaf = Qaf.new_qaf(entry['name'], current_user().id)
         current_user().join_qaf(new_qaf)
         flash("QAF created successfully")
-        return redirect(url_for('welcome'))
+        return redirect(url_for('/my_qafs'))
     return render_template('create_qaf.html', title = "Create QAF")
 
 @app.route("/qaf/<id>", methods=['GET', 'POST'])
@@ -118,7 +118,7 @@ def create_post(id):
         return redirect( url_for( 'login'))
     if (request.form):
         entry = request.form
-        Post.new_post(current_user().id,entry['title'],entry['content'],id)
+        Post.new_post(current_user().id,entry['title'],entry['content'],id, entry['tags'])
         return redirect("/qaf/"+str(id))
     return render_template("create_post.html", title = "Create Post")
 

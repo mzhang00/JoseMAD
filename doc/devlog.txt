@@ -155,3 +155,5 @@ Finish dynamically updating search results on homepage
 
 linM -- 2020-01-14 20:50
 can now add posts and comments to posts
+linM -- 2020-01-14 22:39
+added stuff to nav bar

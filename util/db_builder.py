@@ -24,7 +24,7 @@ users_command = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, usern
 execute(users_command)
 
 # Posts table (per QAF)
-posts_command = "CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY, author_id INTEGER, title TEXT, content TEXT, qaf_id INTEGER, time_created DATETIME DEFAULT CURRENT_TIMESTAMP)"
+posts_command = "CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY, author_id INTEGER, title TEXT, content TEXT, qaf_id INTEGER, tags TEXT, time_created DATETIME DEFAULT CURRENT_TIMESTAMP)"
 execute(posts_command)
 
 # Comments table (per QAF post)
