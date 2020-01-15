@@ -1,5 +1,5 @@
 from util.db_builder import execute
-import util.user
+
 
 class Comment:
 
@@ -15,17 +15,17 @@ class Comment:
 		self.time_created = str(data[0][5])
 		self.net_vote = int(data[0][6])
 
-	def upvoted(self):
-        command = 'UPDATE comments \
-                    SET net_vote = "{}" \
-                    WHERE id = {}'.format(self.net_vote + 1, self.id)
-        execute(command)
+	def upvote(self):
+		command = 'UPDATE comments \
+					SET net_vote = "{}" \
+					WHERE id = {}'.format(self.net_vote + 1, self.id)
+		execute(command)
 
-	def downvoted(self):
-        command = 'UPDATE comments \
-                    SET net_vote = "{}" \
-                    WHERE id = {}'.format(self.net_vote - 1, self.id)
-        execute(command)
+	def downvote(self):
+		command = 'UPDATE comments \
+					SET net_vote = "{}" \
+					WHERE id = {}'.format(self.net_vote - 1, self.id)
+		execute(command)
 
 	# add comment into database
 	@staticmethod

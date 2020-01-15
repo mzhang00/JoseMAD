@@ -8,7 +8,7 @@ class Post:
         command = 'SELECT * FROM posts WHERE id={}'.format(id)
         data = execute(command).fetchall()
         self.id = int(data[0][0])
-        self.author_id = str(data[0][1])
+        self.author_id = int(data[0][1])
         self.title = str(data[0][2])
         self.content = str(data[0][3])
         self.qaf_id = int(data[0][4])
@@ -16,23 +16,25 @@ class Post:
         self.time_created = str(data[0][6])
         self.net_vote = int(data[0][7])
 
-
+    def get_author(self):
+        return util.user.User(self.author_id)
     def get_comments(self):
         command = f'SELECT id FROM comments WHERE post_id = {self.id}'
         data = execute(command).fetchall()
         comments = []
         for comment_id in data:
             comments.append(Comment(comment_id[0]))
+        return comments
 
     def upvoted(self):
         command = 'UPDATE posts \
-                    SET net_vote = "{}" \
-                    WHERE id = {}'.format(self.net_vote + 1, self.id)
+                    SET net_vote = {} \
+                        WHERE id = {}'.format(self.net_vote + 1, self.id)
         execute(command)
 
     def downvoted(self):
         command = 'UPDATE posts \
-                    SET net_vote = "{}" \
+                    SET net_vote = {} \
                     WHERE id = {}'.format(self.net_vote - 1, self.id)
         execute(command)
 

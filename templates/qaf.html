@@ -10,21 +10,16 @@
     <br>
     <br>
     {% for post in posts %}
-<<<<<<< HEAD
-      <div class="post grid-x">
-        <h5 class="small-12">{{post.title}}</h5>
-        <div class="post-desc small-12">
-=======
       <div class="post">
-        <h5>{{post.title}}</h5>
-        <div class="small-12" style="text-align:center">Tags:
+        <h5 style="text-align:left">{{post.title}}</h5>
+        <div class="small-12" style="text-align:left">Tags:
           {% for tag in post.tags %}
             <span class = "tag">{{ tag }}</span>
           {% endfor %}
         </div>
-        <div class="post-desc">
->>>>>>> 74b668021c41aaede3a1bfa3534da1aea57091a6
-          <p>{{post.content}}</p>
+        <div>By <strong>{{post.get_author().username}}</strong> <span style="float:right;">{{post.time_created}}</span> </div><br>
+        <div style="word-wrap: break-word;">
+          {{post.content}}
         </div>
         <br>
         <div class="small-5">

@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div class="button-group grid-x">
+  <a class = "button" style="margin-left:8%;" href="/qaf/{{post.qaf_id}}">Back</a>
+  {% if post.author_id == current_user.id %}
+    <a class = "button" href="">Edit</a>
+  {% endif %}
+</div>
 <div class="grid-x">
   <h2 class="small-12">{{ post.title }}</h2>
   <h5 class="small-12">Tags:
@@ -14,25 +19,32 @@
     <br>
   </div>
   <div class="post small-10 small-offset-1" style="word-wrap:break-word;">
-    {{ post.content }} <div style="float:right;margin-right:50px">{{post.time_created}}</div>
+    <strong >{{author}} </strong> <span style="float:right;margin-right:50px">{{post.time_created}}</span><br><br>{{ post.content }} 
   </div>
-  <div class="small-12 grid-x">
-    <form class="form-group small-10 small-offset-1" method="post">
-      <div class="grid-x">
-        <input class="textInput small-10" name="comment" type="text" placeholder='Click here to comment'>
-        <input class="button small-2" type="submit" value="Submit">
-      </div>
+  <br>
+  {% if comments %}
+    <div class="small-12"><br></div>
+    {% for comment in comments %}
+    <div class="post small-10 small-offset-1">
+      <strong >{{comment.author}} </strong> <span style="float:right;margin-right:50px">{{comment.time_created}}</span> <br><br>
+      <div style="word-wrap: break-word;">{{comment.content}} </div>
+    </div>
+    <div class="small-12">
       <br>
-    </form>
-  </div>
-  {% for comment in comments %}
-  <div class="post small-10 small-offset-1">
-    <div style="word-wrap: break-word;">"{{comment.content}}" - {{comment.author}} <div style="float:right;margin-right:50px">{{comment.time_created}}</div> </div>
-  </div>
-  <div class="small-12">
+
+    </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+<div class="small-12 grid-x">
+  <form class="form-group small-10 small-offset-1" method="post">
+    <div class="grid-x">
+      <input class="textInput small-10" name="comment" type="text" placeholder='Click here to comment'>
+      <input class="button small-2" type="submit" value="Submit">
+    </div>
     <br>
-  </div>
-  {% endfor %}
+  </form>
 </div>
 
 {% endblock content %}
