@@ -13,7 +13,10 @@
 <div class="grid-x">
   <div class="formBorder small-12">
     <h3>Discover Your New QAF:</h3>
-    <input class="textInput" type="text" id="qafsearch" name="search" placeholder="Search">
+    <input class="textInput" type="text" id="qafsearch" name="search" value="Search">
+    <div id="searchResults" class="small-12">
+
+    </div>
   </div>
   <br>
   <br>
@@ -32,9 +35,12 @@
   console.log("yah yeet");
   document.getElementById('qafsearch').addEventListener('input', function functionName() {
     $.getJSON('/qafSearch', {input: document.getElementById('qafsearch').value,}, function(data) {
-          console.log("yah yeet");
-          console.log(data.result);
-				  // $("#result").text(data.result);
+          console.log(data.result.length);
+          document.getElementById('searchResults').innerHTML = "";
+          for (var x = 0; x < data.result.length; x++) {
+            console.log(data.result[x]);
+            document.getElementById('searchResults').innerHTML += '<a class=\"expanded button\" href=\"/qaf/'+data.result[x][0]+'\">'+data.result[x][1]+'</a>';
+          }
 				});
   });
 
