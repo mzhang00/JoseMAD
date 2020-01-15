@@ -10,16 +10,34 @@
     <br>
     <br>
     {% for post in posts %}
-      <div class="post">
-        <h5>{{post.title}}</h5>
-        <div class="post-desc">
+      <div class="post grid-x">
+        <h5 class="small-12">{{post.title}}</h5>
+        <div class="post-desc small-12">
           <p>{{post.content}}</p>
         </div>
         <br>
-        <a class="button expanded" href="{{ url_for('show_post', qaf_id = qaf.id, post_id=post.id) }}"> Continue the Discussion </a>
+        <div class="small-5">
+          <h4 class="upvote" id="upvote{{post.id}}">⬆️</h4>
+        </div>
+        <div class="small-5 small-offset-2">
+          <h4 class="downvote">⬇️</h4>
+        </div>
+        <a class="button expanded small-12" href="{{ url_for('show_post', qaf_id = qaf.id, post_id=post.id) }}"> Continue the Discussion </a>
       </div>
       <br>
     {% endfor %}
   </div>
 </div>
+<script type="text/javascript">
+  document.getElementById("upvote").addEventListener("click", function fun() {
+    $.getJSON('/upvote', {input: document.getElementById('upvote').value,}, function(data) {
+          console.log(data.result.length);
+          document.getElementById('searchResults').innerHTML = "";
+          for (var x = 0; x < data.result.length; x++) {
+            console.log(data.result[x]);
+            document.getElementById('searchResults').innerHTML += '<a class=\"expanded button\" href=\"/qaf/'+data.result[x][0]+'\">'+data.result[x][1]+'</a>';
+          }
+        });
+  });
+</script>
 {% endblock content %}

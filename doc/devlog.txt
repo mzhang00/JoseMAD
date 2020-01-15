@@ -173,3 +173,6 @@ Settings page and back-end is finished.
 
 jesseC -- 2020-01-15 08:36
 Added new columns for upvote/downvote (called net_vote) in comments and posts.
+
+prathamR -- 2020-01-15 08:49
+Create styling for upvotes and downvotes
