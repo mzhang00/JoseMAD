@@ -1,4 +1,4 @@
-from db_builder import execute
+from util.db_builder import execute
 
 class Comment:
 	
@@ -12,10 +12,10 @@ class Comment:
 		self.qaf_id = int(data[0][4])
 		self.time_created = str(data[0][5])
 
-		# add comment into database
-		@staticmethod
-		def new_comment(author_id, content, post_id, qaf_id):
-			command = 'INSERT INTO comments (author_id, content, post_id, qaf_id) VALUES ("{}", "{}","{}","{}")'.format(author_id, content, post_id, qaf_id)
-			execute(command)
+	# add comment into database
+	@staticmethod
+	def new_comment(author_id, content, post_id, qaf_id):
+		command = f'INSERT INTO comments (author_id, content, post_id, qaf_id) VALUES ("{author_id}", "{content}","{post_id}","{qaf_id}")'
+		execute(command)
 
 			

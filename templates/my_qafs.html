@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>QAFS Joined</h2>
+    <ul>
+        {%  for qaf in qaf_list %}
+            <li>
+                <a href="{{ url_for('show_qaf', id=qaf.id) }}">{{ qaf.name }}</a> <br>
+            </li>
+        {%  endfor %}
+    </ul>
+{% endblock content %}

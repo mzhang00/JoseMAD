@@ -11,7 +11,7 @@ class Qaf:
 		self.owner_id = int(data[0][2])
 
 	def get_posts(self):
-		command = 'SELECT id FROM posts WHERE qaf_id = {}'.format(self.id)
+		command = 'SELECT id FROM posts WHERE qaf_id = {} ORDER BY time_created DESC'.format(self.id)
 		data = execute(command).fetchall()
 		posts = []
 		for post_id in data:

@@ -12,7 +12,7 @@
     <!-- Our own StyleSheet -->
     <link rel="stylesheet" href="../static/css/stylesheet.css">
     <!-- Custom Font -->
-    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/stylesheet.css') }}" rel="stylesheet">
   </head>
   <body>
     <div class="top-bar grid-x">
@@ -27,7 +27,7 @@
           <div class="small-1"></div>
           <a class="button small-5"href="/signup">Sign Up</a>
           {% else %}
-            Currently logged in as: {{ current_user.username }}
+            <div style = "text-align:right;margin-left:20px">Currently logged in as: {{ current_user.username }}</div>
         {% endif %}
       </div>
       </div>

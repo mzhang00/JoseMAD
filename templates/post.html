@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ post.title }}</h2>
+{{ post.content }}
+<br>
+<br>
+{% for comment in comments %}
+    <div style = "word-wrap: break-word;">{{comment.content}} </div> <div style = "float:right;margin-right:50px">{{comment.time_created}}</div> <br>
+{% endfor %}
+<form class="form-group" method="post">
+    <input name = "comment" type="text" placeholder='Click here to comment'>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}

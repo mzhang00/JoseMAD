@@ -1,4 +1,5 @@
 from util.db_builder import execute
+from util.qaf import Qaf
 
 class User:
 
@@ -18,6 +19,10 @@ class User:
                     WHERE id = {}'.format(qaf_id, self.id)
         execute(command)
 
+    def get_qafs_joined(self):
+        qafs_joined = self.qafs_joined.split(',')[:-1]
+        qaf_list = [Qaf(qaf_id) for qaf_id in qafs_joined]
+        return qaf_list
     def change_password(self, new_pass):
         command = 'UPDATE users \
                     SET password = "{}," \
@@ -33,7 +38,7 @@ class User:
     # add user into database
     @staticmethod
     def new_user(username, password):
-        command = 'INSERT INTO users (username, password, waffles, qafs_joined) VALUES ("{}", "{}", 0, "")'.format(username, password)
+        command = f'INSERT INTO users (username, password, waffles, qafs_joined) VALUES ("{username}", "{password}", 0, "")'
         execute(command)
 
     # get user object by username

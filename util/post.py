@@ -1,4 +1,5 @@
 from util.db_builder import execute
+from util.comment import Comment
 
 class Post:
 
@@ -13,6 +14,13 @@ class Post:
         self.time_created = str(data[0][5])
 
 
+    def get_comments(self):
+        command = f'SELECT id FROM comments WHERE post_id = {self.id}'
+        data = execute(command).fetchall()
+        comments = []
+        for comment_id in data:
+            comments.append(Comment(comment_id[0]))
+        return comments
     # add post into database
     @staticmethod
     def new_post(author_id, title, content, qaf_id):
