@@ -155,5 +155,9 @@ Finish dynamically updating search results on homepage
 
 linM -- 2020-01-14 20:50
 can now add posts and comments to posts
+
+prathamR -- 2020-01-14 21:23
+update styling to waffle theme, and clean up homepage styling
+
 linM -- 2020-01-14 22:39
 added stuff to nav bar
