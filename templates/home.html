@@ -11,16 +11,17 @@
       {% endif %}
   {% endwith %}
 <div class="grid-x">
-  <div class="formBorder small-12">
+  <div class="formBorder small-10 small-offset-1">
     <h3>Discover Your New QAF:</h3>
     <input class="textInput" type="text" id="qafsearch" name="search" placeholder="Search">
     <div id="searchResults" class="small-12">
 
     </div>
   </div>
-  <br>
-  <br>
-  <br>
+  <div class="small-12">
+    <br>
+    <br>
+  </div>
   <div class="small-4 small-offset-4 grid-x">
     <a class="expanded button row" href="/settings">Settings</a>
     <a class="expanded button row" href="/my_qafs">QAFS</a>
@@ -31,7 +32,6 @@
 </div>
 
 <script type="text/javascript">
-
   console.log("yah yeet");
   document.getElementById('qafsearch').addEventListener('input', function functionName() {
     $.getJSON('/qafSearch', {input: document.getElementById('qafsearch').value,}, function(data) {
@@ -43,8 +43,6 @@
           }
 				});
   });
-
-
 </script>
 
 {% endblock content%}

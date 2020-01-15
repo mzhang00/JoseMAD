@@ -1,12 +1,14 @@
+html {
+}
 body {
   font-family: 'Overpass', sans-serif;
-  background-color: RGB(15, 15, 15);
-  color: fuchsia;
+  background-color: RGB(253, 211, 158);
+  color: navy;
 }
 a {
   border: 0px;
 
-  border-color: fuchsia;
+  border-color: RGB(209, 143, 46);
   padding: 0px;
   font-family: 'Overpass', sans-serif;
 }
@@ -15,16 +17,16 @@ li {
   padding: 0px;
 }
 .top-bar {
-  background-color: black;
+  background-color: RGB(224, 173, 104);
   position: fixed;
   width: 100%;
 }
 .button {
-  background-color: fuchsia;
+  background-color: RGB(209, 143, 46);
   border-radius: 5px;
 }
 .button:hover {
-  background-color: orchid;
+  background-color: RGB(205, 171, 109);
   border-radius: 5px;
 }
 .button-group {
@@ -34,20 +36,20 @@ li {
   text-align: center;
 }
 h1 {
-  color: fuchsia;
+  color: navy);
   margin: auto;
   font-family: 'Overpass', sans-serif;
   text-align: center;
 }
 
 h3 {
-  color: fuchsia;
+  color: navy;
   margin: auto;
   font-family: 'Overpass', sans-serif;
   text-align: center;
 }
 h4 {
-  color: fuchsia;
+  color: navy;
   margin: auto;
   font-family: 'Overpass', sans-serif;
   text-align: center;
@@ -62,34 +64,24 @@ img {
   margin-right: auto;
 }
 label {
-  color: fuchsia;
+  color: navy;
 }
 .formBorder {
   padding: 50px;
   border-radius: 50px;
   border-style: inset;
-  border-color: fuchsia;
+  border-color: RGB(209, 143, 46);
+  background-color: RGB(224, 173, 104);
 }
 
 .textInput {
   border-radius: 15px;
-  background-color: black;
-  border-color: fuchsia;
-  color: white;
+  background-color: white;
+  border-color: RGB(209, 143, 46);
+  color: navy;
 }
-input[type=text]:focus, input[type=password]:focus {
-  background-color: black;
-  color:white;
-}
-
-input[type=text]:focus::placeholder{
-  color:transparent;
-}
-.top-bar {
-  z-index: 0;
-}
-.callout.alert {
-  z-index: 1;
+.textInput:active {
+  background-color: RGB(253, 211, 158);
 }
 /* #thumbnail-container {
   padding: auto;
