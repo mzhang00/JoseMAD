@@ -3,13 +3,6 @@ body {
   background-color: RGB(15, 15, 15);
   color: fuchsia;
 }
-.menu {
-  background: $foundation-5-top-bar-bg;
-
-  a {
-    color: $foundation-5-top-bar-text-color;
-  }
-}
 
 a {
   border: 0px;
