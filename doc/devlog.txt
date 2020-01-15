@@ -164,3 +164,6 @@ added stuff to nav bar
 
 prathamR -- 2020-01-14 22:56
 Fix errors with adding new QAFs that do not show, and style different sites
+
+linM -- 2020-01-14 23:07
+fixed bug with qafs joined

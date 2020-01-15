@@ -14,10 +14,12 @@ class User:
 
 
     def join_qaf(self, qaf_id):
-        command = 'UPDATE users \
-                    SET qafs_joined =  qafs_joined || "{}," \
-                    WHERE id = {}'.format(qaf_id, self.id)
-        execute(command)
+        qafs = self.qafs_joined.split(',')
+        if qaf_id not in qafs:
+            command = 'UPDATE users \
+                        SET qafs_joined =  qafs_joined || "{}," \
+                        WHERE id = {}'.format(qaf_id, self.id)
+            execute(command)
 
     def get_qafs_joined(self):
         qafs_joined = self.qafs_joined.split(',')[:-1]
