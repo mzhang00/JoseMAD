@@ -15,13 +15,13 @@ class Comment:
 		self.time_created = str(data[0][5])
 		self.net_vote = int(data[0][6])
 
-    def upvoted(self):
+	def upvoted(self):
         command = 'UPDATE comments \
                     SET net_vote = "{}" \
                     WHERE id = {}'.format(self.net_vote + 1, self.id)
         execute(command)
 
-    def downvoted(self):
+	def downvoted(self):
         command = 'UPDATE comments \
                     SET net_vote = "{}" \
                     WHERE id = {}'.format(self.net_vote - 1, self.id)
