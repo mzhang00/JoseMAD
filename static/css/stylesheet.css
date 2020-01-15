@@ -41,7 +41,12 @@ h1 {
   font-family: 'Overpass', sans-serif;
   text-align: center;
 }
-
+h2 {
+  color: navy);
+  margin: auto;
+  font-family: 'Overpass', sans-serif;
+  text-align: center;
+}
 h3 {
   color: navy;
   margin: auto;
@@ -81,6 +86,20 @@ label {
   color: navy;
 }
 .textInput:active {
+  background-color: RGB(253, 211, 158);
+}
+.post {
+  border-color: RGB(209, 143, 46);
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10px;
+  background-color: RGB(224, 173, 104);
+  padding: 15px;
+}
+.post-desc {
+  border-color: RGB(209, 143, 46);
+  border-style: solid;
+  border-width: thin;
   background-color: RGB(253, 211, 158);
 }
 /* #thumbnail-container {

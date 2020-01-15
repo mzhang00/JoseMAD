@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>QAFS Joined</h2>
-    <ul>
-        {%  for qaf in qaf_list %}
-            <li>
-                <a href="{{ url_for('show_qaf', id=qaf.id) }}">{{ qaf.name }}</a> <br>
-            </li>
-        {%  endfor %}
-    </ul>
+<div class="grid-x">
+  <h2 class="row small-12">QAFS Joined</h2>
+  <div class="row small-12">
+    <br>
+  </div>
+  <div class="formBorder row small-10 small-offset-1">
+    {% if qaf_list %}
+      {%  for qaf in qaf_list %}
+        <a class="expanded button "href="{{ url_for('show_qaf', id=qaf.id) }}">{{ qaf.name }}</a>
+      {%  endfor %}
+    {% else %}
+      <h4>Nothing to see here :(</h4>
+    {% endif %}
+  </div>
+</div>
 {% endblock content %}

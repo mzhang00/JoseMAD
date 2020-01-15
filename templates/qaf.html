@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>{{ qaf.name }}</h2>
+<div class="grid-x">
+  <h2 class="small-12">Welcome to the <strong>{{ qaf.name }}</strong> QAF</h2>
+  <div class="small-10 small-offset-1">
     <br>
-    <a class="button" href="/qaf/{{qaf.id}}/create_post">Create Post</a><br>
+    <br>
+    <a class="expanded button" href="/qaf/{{qaf.id}}/create_post">Make a Statement</a>
+    <br>
+    <br>
     {% for post in posts %}
-        <ul>
-            <li>
-                <a href="{{ url_for('show_post', qaf_id = qaf.id, post_id=post.id) }}"> {{post.content}} </a>
-            </li>
-        </ul>
+      <div class="post">
+        <h5>{{post.title}}</h5>
+        <div class="post-desc">
+          <p>{{post.content}}</p>
+        </div>
+        <br>
+        <a class="button expanded" href="{{ url_for('show_post', qaf_id = qaf.id, post_id=post.id) }}"> Continue the Discussion </a>
+      </div>
+      <br>
     {% endfor %}
+  </div>
+</div>
 {% endblock content %}
