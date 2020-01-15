@@ -176,3 +176,6 @@ Added new columns for upvote/downvote (called net_vote) in comments and posts.
 
 prathamR -- 2020-01-15 08:49
 Create styling for upvotes and downvotes
+
+linM -- 2020-01-15 08:39
+tags now show

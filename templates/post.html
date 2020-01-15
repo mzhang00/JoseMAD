@@ -4,12 +4,17 @@
 
 <div class="grid-x">
   <h2 class="small-12">{{ post.title }}</h2>
+  <h5 class="small-12">Tags:
+    {% for tag in post.tags %}
+      <span class = "tag">{{ tag }}</span>
+    {% endfor %}
+  </h5>
   <h5 class="small-12">discussion prompted by <strong>{{author}}</strong></h5>
   <div class="small-12">
     <br>
   </div>
-  <div class="post small-10 small-offset-1">
-    {{ post.content }}
+  <div class="post small-10 small-offset-1" style="word-wrap:break-word;">
+    {{ post.content }} <div style="float:right;margin-right:50px">{{post.time_created}}</div>
   </div>
   <div class="small-12 grid-x">
     <form class="form-group small-10 small-offset-1" method="post">
