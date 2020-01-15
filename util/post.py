@@ -1,5 +1,6 @@
 from util.db_builder import execute
 from util.comment import Comment
+import util.user
 
 class Post:
 
@@ -27,3 +28,4 @@ class Post:
     def new_post(author_id, title, content, qaf_id, tags):
         command = f'INSERT INTO posts (author_id, title, content, qaf_id, tags) VALUES ("{author_id}", "{title}", "{content}", {qaf_id}, "{tags}")'
         execute(command)
+        util.user.User(author_id).join_qaf(qaf_id)

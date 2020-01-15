@@ -1,5 +1,6 @@
 from util.db_builder import execute
 from util.post import Post
+import util.user
 
 class Qaf:
 
@@ -9,6 +10,7 @@ class Qaf:
 		self.id = int(data[0][0])
 		self.name = str(data[0][1])
 		self.owner_id = int(data[0][2])
+		self.owner = util.user.User(self.owner_id).username
 
 	def get_posts(self):
 		command = 'SELECT id FROM posts WHERE qaf_id = {} ORDER BY time_created DESC'.format(self.id)

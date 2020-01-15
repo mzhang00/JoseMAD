@@ -161,3 +161,6 @@ update styling to waffle theme, and clean up homepage styling
 
 linM -- 2020-01-14 22:39
 added stuff to nav bar
+
+prathamR -- 2020-01-14 22:56
+Fix errors with adding new QAFs that do not show, and style different sites

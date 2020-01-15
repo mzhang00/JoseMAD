@@ -83,15 +83,15 @@ def settings():
 
 @app.route('/my_qafs')
 def my_qafs():
-    if current_user() == None: 
+    if current_user() == None:
       flash('You must be logged in to access this page', 'warning')
       return redirect( url_for( 'login'))
     qaf_list = current_user().get_qafs_joined()
     return render_template("my_qafs.html", title = "My Qafs", qaf_list = qaf_list)
-    
+
 @app.route('/create_qaf', methods=['GET', 'POST'])
 def create_qaf():
-    if current_user() == None: 
+    if current_user() == None:
         flash('You must log in to access this page')
         return redirect( url_for( 'login'))
     if (request.form):
@@ -99,12 +99,12 @@ def create_qaf():
         new_qaf = Qaf.new_qaf(entry['name'], current_user().id)
         current_user().join_qaf(new_qaf)
         flash("QAF created successfully")
-        return redirect(url_for('/my_qafs'))
+        return redirect(url_for('my_qafs'))
     return render_template('create_qaf.html', title = "Create QAF")
 
 @app.route("/qaf/<id>", methods=['GET', 'POST'])
 def show_qaf(id):
-    if current_user() == None: 
+    if current_user() == None:
       flash('You must be logged in to access this page', 'warning')
       return redirect( url_for( 'login'))
     qaf = Qaf(id)
@@ -124,7 +124,7 @@ def create_post(id):
 
 @app.route("/qaf/<qaf_id>/<post_id>", methods=['GET', 'POST'])
 def show_post(qaf_id,post_id):
-    if current_user() == None: 
+    if current_user() == None:
       flash('You must be logged in to access this page', 'warning')
       return redirect( url_for( 'login'))
     if ('comment' in request.form):
@@ -132,7 +132,7 @@ def show_post(qaf_id,post_id):
         Comment.new_comment(current_user().id, entry['comment'], post_id, qaf_id)
     post = Post(post_id)
     comments = post.get_comments()
-    return render_template('post.html', title = post.title, post = post, comments = comments)
+    return render_template('post.html', title = post.title, post = post, comments = comments, author = User(post.author_id).username)
 
 # @app.route("/qaf/<qaf_id>/<post_id>/create_comment", methods=['GET', 'POST'])
 # def create_comment(qaf_id,post_id):
