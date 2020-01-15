@@ -170,3 +170,6 @@ fixed bug with qafs joined
 
 jesseC -- 2020-01-15 08:21
 Settings page and back-end is finished.
+
+jesseC -- 2020-01-15 08:36
+Added new columns for upvote/downvote (called net_vote) in comments and posts.
