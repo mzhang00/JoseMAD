@@ -191,3 +191,6 @@ some typos in comment.py
 
 prathamR -- 2020-01-15 21:15
 Add upvoting post
+
+prathamR -- 2020-01-15 21:37
+add upvoting to comments

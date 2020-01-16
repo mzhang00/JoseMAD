@@ -188,6 +188,20 @@ def downvotePost():
     Post(int(input)).downvoted()
     return jsonify(result = input);
 
+@app.route('/upvoteComment')
+def upvoteComment():
+    input = request.args.get("input", 0, type=str);
+    print(input)
+    Comment(int(input)).upvote()
+    return jsonify(result = input);
+
+@app.route('/downvoteComment')
+def downvoteComment():
+    input = request.args.get("input", 0, type=str);
+    print(input)
+    Comment(int(input)).downvote()
+    return jsonify(result = input);
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     # check if form was submitted

@@ -18,20 +18,31 @@
   <div class="small-12">
     <br>
   </div>
-  <div class="post small-10 small-offset-1" style="word-wrap:break-word;">
-    <strong >{{author}} </strong> <span style="float:right;margin-right:50px">{{post.time_created}}</span><br><br>{{ post.content }} 
+  <div class="small-10 small-offset-1" style="word-wrap:break-word;">
+    <span style="float:right;margin-right:50px">{{post.time_created}}</span><br><br>{{ post.content }}
   </div>
   <br>
   {% if comments %}
     <div class="small-12"><br></div>
     {% for comment in comments %}
-    <div class="post small-10 small-offset-1">
-      <strong >{{comment.author}} </strong> <span style="float:right;margin-right:50px">{{comment.time_created}}</span> <br><br>
-      <div style="word-wrap: break-word;">{{comment.content}} </div>
+    <div class="post small-10 small-offset-1 grid-x">
+      <div class="small-12">
+        <strong class="small-6">{{comment.author}}</strong>
+        <span class="small-6" style="float:right;margin-right:50px">{{comment.time_created}}</span>
+      </div>
+      <div class="small-12" style="word-wrap: break-word;">{{comment.content}} </div>
+      <div class="small-4 upvote" id="{{comment.id}}">
+        <h4 class="upvote" id="{{comment.id}}">⬆️</h4>
+      </div>
+      <div class="small-4 downvote" id="{{comment.id}}">
+        <h4 class="downvote" id="{{comment.id}}">⬇️</h4>
+      </div>
+      <div class="small-4">
+        <h4 class="votes" id="{{comment.id}}">{{comment.net_vote}}</h4>
+      </div>
     </div>
     <div class="small-12">
       <br>
-
     </div>
     {% endfor %}
   {% endif %}
@@ -46,5 +57,21 @@
     <br>
   </form>
 </div>
-
+<script type="text/javascript">
+  var upvotes = Array.from(document.getElementsByClassName("upvote"));
+  var downvotes = Array.from(document.getElementsByClassName("downvote"));
+  document.getElementsByTagName('body')[0].addEventListener('click', event => {
+    console.log(event.target);
+    if (upvotes.includes(event.target)) {
+      $.getJSON('/upvoteComment', {input: event.target.id}, function(data) {
+          document.getElementsByClassName("votes").namedItem(event.target.id).innerText = 1 + Number(document.getElementsByClassName("votes").namedItem(event.target.id).innerText);
+        });
+    }
+    if (downvotes.includes(event.target)) {
+      $.getJSON('/downvoteComment', {input: event.target.id}, function(data) {
+          document.getElementsByClassName("votes").namedItem(event.target.id).innerText = Number(document.getElementsByClassName("votes").namedItem(event.target.id).innerText) - 1;
+        });
+    }
+  });
+</script>
 {% endblock content %}
