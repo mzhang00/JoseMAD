@@ -189,5 +189,15 @@ changed front end a little
 linM -- 2020-01-15 18:30
 some typos in comment.py
 
+
+prathamR -- 2020-01-15 21:15
+Add upvoting post
+
+prathamR -- 2020-01-15 21:37
+add upvoting to comments
+
+prathamR -- 2020-01-15 21:52
+Fix the last pages I didn't style
+
 linM -- 2020-01-15 21:59
 working on editing stuff
