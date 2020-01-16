@@ -216,3 +216,6 @@ changed some front end bugs
 
 linM -- 2020-01-15 23:22
 changed front end again
+
+linM -- 2020-01-15 23:23
+fixed some flashing messages
