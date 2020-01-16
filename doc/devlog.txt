@@ -197,3 +197,6 @@ add upvoting to comments
 
 prathamR -- 2020-01-15 21:52
 Fix the last pages I didn't style
+
+zhangM -- 2020-01-15 23:06
+make text fields for changing password actually passwords; update permissions to access certain pages without being logged in; fix placement of flashed msgs
