@@ -202,5 +202,11 @@ Fix the last pages I didn't style
 linM -- 2020-01-15 21:59
 working on editing stuff
 
+zhangM -- 2020-01-15 23:06
+make text fields for changing password actually passwords
+update permissions to access certain pages without being logged in
+fix placement of flashed msgs
+
 linM -- 2020-01-15 23:15
 finished edit stuff and some front end stuff
+
