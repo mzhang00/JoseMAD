@@ -213,3 +213,6 @@ finished edit stuff and some front end stuff
 
 linM -- 2020-01-15 23:20
 changed some front end bugs
+
+linM -- 2020-01-15 23:22
+changed front end again
