@@ -8,6 +8,7 @@ from util.post import Post
 from util.qaf import Qaf
 from util.comment import Comment
 from json import loads
+import util.quotes
 app = Flask(__name__)
 
 app.secret_key = os.urandom(64)
@@ -38,7 +39,8 @@ def shop():
 def welcome():
     if current_user() == None:
         return redirect('/home')
-    return render_template("home.html", title = "Welcome")
+    quotesDict = util.quotes.json2dict(util.quotes.quotes())
+    return render_template("home.html", title = "Welcome", quote=quotesDict["content"], author=quotesDict["author"])
 
 @app.route('/logout')
 def logout():

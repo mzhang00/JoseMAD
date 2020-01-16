@@ -111,6 +111,10 @@ label {
   border-width: thin;
   background-color: RGB(253, 211, 158);
 }
+.quote {
+  font-family: cursive;
+  text-align: center;
+}
 /* #thumbnail-container {
   padding: auto;
 } */
