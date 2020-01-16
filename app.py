@@ -29,6 +29,9 @@ def root():
 
 @app.route('/shop')
 def shop():
+    if current_user() == None: # have to be logged in to make an entry
+      flash('You must be logged in to access this page', 'warning')
+      return redirect( url_for( 'login'))
     return render_template("shop.html", title = "Shop")
 
 @app.route('/welcome')

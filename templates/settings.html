@@ -7,8 +7,7 @@
 <br><br>
 <div class="grid-x">
   <div class="formBorder small-8 small-offset-2">
-    <form class="grid-x" action="/settings" method="POST">
-          {% with messages = get_flashed_messages(with_categories = true) %}
+    {% with messages = get_flashed_messages(with_categories = true) %}
         {% if messages %}
         <br>
             {% for category, message in messages %}
@@ -18,15 +17,19 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
+    <form class="grid-x" action="/settings" method="POST">
       <br>
       <h5>Enter Your Previous Password:</h5>
-      <input class="row" type="text" name="oldpass" value="">
+      <input class="textInput" name="oldpass" type="password"><br>
+      <!-- <input class="row" type="text" name="oldpass" value=""> -->
       <br>
       <h5>Enter Your New Password:</h5>
-      <input class="row" type="text" name="newpass" value="">
+      <input class="textInput" name="newpass" type="password"><br>
+      <!-- <input class="row" type="text" name="newpass" value=""> -->
       <br>
       <h5>Confirm Your New Password:</h5>
-      <input class="row" type="text" name="confirm" value="">
+      <input class="textInput" name="confirm" type="password"><br>
+      <!-- <input class="row" type="text" name="confirm" value=""> -->
       <br>
       <br>
       <input class="row button expanded" type="submit" name="" value="Submit">
