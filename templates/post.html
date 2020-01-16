@@ -4,7 +4,9 @@
 <div class="button-group grid-x">
   <a class = "button" style="margin-left:8%;" href="/qaf/{{post.qaf_id}}">Back</a>
   {% if post.author_id == current_user.id %}
-    <a class = "button" href="">Edit</a>
+    <form method="post">
+      <button type="submit" class="button" name='post_id' id='edit' value="{{ post.id }}"> Edit </button>
+    </form>
   {% endif %}
 </div>
 <div class="grid-x">
@@ -26,8 +28,12 @@
     <div class="small-12"><br></div>
     {% for comment in comments %}
     <div class="post small-10 small-offset-1">
-      <strong >{{comment.author}} </strong> <span style="float:right;margin-right:50px">{{comment.time_created}}</span> <br><br>
-      <div style="word-wrap: break-word;">{{comment.content}} </div>
+      <strong >{{comment.author}} </strong> 
+      {% if comment.author_id == current_user.id %}
+        <button class="button" style="padding:10px;margin-left:1%" onclick="edit_comment()">Edit</button> 
+      {% endif %}
+      <span style="float:right;margin-right:50px">{{comment.time_created}}</span> <br>
+      <div id="content" style="word-wrap: break-word;">{{comment.content}} </div>
     </div>
     <div class="small-12">
       <br>
@@ -46,5 +52,11 @@
     <br>
   </form>
 </div>
-
+<script>
+  function edit_comment() {
+    var str = document.getElementById("content").innerHTML; 
+      console.log(str)
+    document.getElementById("content").innerHTML = str;
+  }
+  </script>
 {% endblock content %}

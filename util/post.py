@@ -13,6 +13,7 @@ class Post:
         self.content = str(data[0][3])
         self.qaf_id = int(data[0][4])
         self.tags = str(data[0][5]).split(',')
+        self.tags_str=str(data[0][5])
         self.time_created = str(data[0][6])
         self.net_vote = int(data[0][7])
 
@@ -38,6 +39,10 @@ class Post:
                     WHERE id = {}'.format(self.net_vote - 1, self.id)
         execute(command)
 
+    def update(self,title,content,tags):
+        command = f'UPDATE posts SET title =  "{title}", content = "{content}", tags = "{tags}" WHERE id = {self.id}'
+        execute(command)
+        
     # add post into database
     @staticmethod
     def new_post(author_id, title, content, qaf_id, tags):

@@ -52,6 +52,18 @@ def qafSearch():
     print(output)
     return jsonify(result = output);
 
+@app.route('/edit_title', methods=['GET','POST'])
+def edit_title():
+    post = Post(request.args['post'])
+    if (request.form):
+        post.update(request.form['title'],request.form['content'],request.form['tags'])
+        return redirect(f'/qaf/{post.qaf_id}/{post.id}')
+    return render_template("edit_title.html", post=post)
+
+@app.route('/edit_comment', methods=['GET','POST'])
+def edit_comment():
+    comment= Comment(request.args['comment'])
+
 @app.route('/home')
 def home():
     return render_template("index.html", title = "WELCOME TO QAFFLE")
@@ -130,6 +142,8 @@ def show_post(qaf_id,post_id):
     if ('comment' in request.form):
         entry = request.form
         Comment.new_comment(current_user().id, entry['comment'], post_id, qaf_id)
+    if ('post_id' in request.form):
+        return redirect(url_for('edit_title', post = request.form['post_id']))
     post = Post(post_id)
     comments = post.get_comments()
     return render_template('post.html', title = post.title, post = post, comments = comments, author = User(post.author_id).username)

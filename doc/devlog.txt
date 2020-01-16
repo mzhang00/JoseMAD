@@ -188,3 +188,6 @@ changed front end a little
 
 linM -- 2020-01-15 18:30
 some typos in comment.py
+
+linM -- 2020-01-15 21:59
+working on editing stuff
