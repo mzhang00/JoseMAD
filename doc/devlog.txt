@@ -225,3 +225,6 @@ fixed some flashing messages
 
 prathamR -- 2020-01-16 01:13
 add API functionality, and update README with API notes
+
+prathamR -- 2020-01-16 08:00
+remove shop
