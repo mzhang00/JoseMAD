@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <br>
-  <form class="form-group" method="post">
-    <input type="submit" value="Submit">
-    <input name = "title" type="text" value='{{ post.title }}'>
-    <input name="tags" type="text" value='{{ post.tags_str }}'>
+<br>
+<div class="grid-x">
+    <h2 class="small-12">Edit Post</h2>
+  <form class="form-group formBorder small-10 small-offset-1" method="post">
+    <input class="textInput" name="title" type="text" placeholder='Title' value='{{ post.title }}'>
+    <br>
+    <input class="textInput" name="tags" type="text" palcehodler='tage' value='{{ post.tags_str }}'>
     <br>
     <textarea id="content" name="content" rows="10" cols="100">{{ post.content }}</textarea>
+    <input class="expanded button" type="submit" value="Submit">
   </form>
+</div>
 {% endblock content %}

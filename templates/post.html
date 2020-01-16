@@ -20,8 +20,9 @@
   <div class="small-12">
     <br>
   </div>
-  <div class="small-10 small-offset-1" style="word-wrap:break-word;">
-    <span style="float:right;margin-right:50px">{{post.time_created}}</span><br><br>{{ post.content }}
+  <div class="small-10 small-offset-1 post" style="word-wrap:break-word;">
+    <span style="float:right;margin-right:50px">{{post.time_created}}</span><strong>{{author}}</strong><br><br>
+    {{ post.content }}
   </div>
   <br>
   {% if comments %}
@@ -36,17 +37,27 @@
       <div id="content" style="word-wrap: break-word;">{{comment.content}} </div> -->
     <div class="post small-10 small-offset-1 grid-x">
       <div class="small-12">
-        <strong class="small-6">{{comment.author}}</strong>
+        {% if comment.author_id == current_user.id %}
+          <form class="form-group" method="post">
+            <strong class="small-6">{{comment.author}}</strong>
+            <button type="submit" class="button" name='comment_id' value="{{ comment.id }}"> Edit </button>
+          </form>
+        {%else %}
+          <strong class="small-6">{{comment.author}}</strong>
+        {% endif %}
         <span class="small-6" style="float:right;margin-right:50px">{{comment.time_created}}</span>
       </div>
-      <div class="small-12" style="word-wrap: break-word;">{{comment.content}} </div>
-      <div class="small-4 upvote" id="{{comment.id}}">
+      <div class="small-12">
+        <br>
+      </div>
+      <div class="small-12" id='content' style="word-wrap: break-word;">{{comment.content}} </div>
+      <div class="small-4 upvote" id="{{comment.id}}" style="margin-left:85%;width:5%">
         <h4 class="upvote" id="{{comment.id}}">⬆️</h4>
       </div>
-      <div class="small-4 downvote" id="{{comment.id}}">
-        <h4 class="downvote" id="{{comment.id}}">⬇️</h4>
+      <div class="small-4 downvote" id="{{comment.id}}" style="width:5%">
+        <h4 class="downvote" id="{{comment.id}}" >⬇️</h4>
       </div>
-      <div class="small-4">
+      <div>
         <h4 class="votes" id="{{comment.id}}">{{comment.net_vote}}</h4>
       </div>
     </div>
@@ -66,15 +77,6 @@
     <br>
   </form>
 </div>
-<<<<<<< HEAD
-<script>
-  function edit_comment() {
-    var str = document.getElementById("content").innerHTML; 
-      console.log(str)
-    document.getElementById("content").innerHTML = str;
-  }
-  </script>
-=======
 <script type="text/javascript">
   var upvotes = Array.from(document.getElementsByClassName("upvote"));
   var downvotes = Array.from(document.getElementsByClassName("downvote"));
@@ -92,5 +94,4 @@
     }
   });
 </script>
->>>>>>> 2847720ef812af115edb75a0b1348908f0aa8014
 {% endblock content %}

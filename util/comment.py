@@ -26,6 +26,10 @@ class Comment:
 					SET net_vote = "{}" \
 					WHERE id = {}'.format(self.net_vote - 1, self.id)
 		execute(command)
+	
+	def update(self,content):
+		command = f'UPDATE comments SET content = "{content}" WHERE id = {self.id}'
+		execute(command)
 
 	# add comment into database
 	@staticmethod

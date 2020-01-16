@@ -54,6 +54,9 @@ def qafSearch():
 
 @app.route('/edit_title', methods=['GET','POST'])
 def edit_title():
+    if current_user() == None:
+      flash('You must be logged in to access this page', 'warning')
+      return redirect( url_for( 'login'))
     post = Post(request.args['post'])
     if (request.form):
         post.update(request.form['title'],request.form['content'],request.form['tags'])
@@ -62,8 +65,14 @@ def edit_title():
 
 @app.route('/edit_comment', methods=['GET','POST'])
 def edit_comment():
+    if current_user() == None:
+      flash('You must be logged in to access this page', 'warning')
+      return redirect( url_for( 'login'))
     comment= Comment(request.args['comment'])
-
+    if (request.form):
+        comment.update(request.form['content'])
+        return redirect(f'/qaf/{comment.qaf_id}/{comment.post_id}')
+    return render_template("edit_comment.html", comment = comment)
 @app.route('/home')
 def home():
     return render_template("index.html", title = "WELCOME TO QAFFLE")
@@ -144,14 +153,40 @@ def show_post(qaf_id,post_id):
         Comment.new_comment(current_user().id, entry['comment'], post_id, qaf_id)
     if ('post_id' in request.form):
         return redirect(url_for('edit_title', post = request.form['post_id']))
+    if('comment_id' in request.form):
+        return redirect(url_for('edit_comment', comment = request.form['comment_id']))
+        
     post = Post(post_id)
     comments = post.get_comments()
     return render_template('post.html', title = post.title, post = post, comments = comments, author = User(post.author_id).username)
 
-# @app.route("/qaf/<qaf_id>/<post_id>/create_comment", methods=['GET', 'POST'])
-# def create_comment(qaf_id,post_id):
+@app.route('/upvotePost')
+def upvotePost():
+    input = request.args.get("input", 0, type=str);
+    print(input)
+    Post(int(input)).upvoted()
+    return jsonify(result = input);
 
-#     return render_template('create_comment.html', title = "Create Comment", current_user = current_user(), post = post)
+@app.route('/downvotePost')
+def downvotePost():
+    input = request.args.get("input", 0, type=str);
+    print(input)
+    Post(int(input)).downvoted()
+    return jsonify(result = input);
+
+@app.route('/upvoteComment')
+def upvoteComment():
+    input = request.args.get("input", 0, type=str);
+    print(input)
+    Comment(int(input)).upvote()
+    return jsonify(result = input);
+
+@app.route('/downvoteComment')
+def downvoteComment():
+    input = request.args.get("input", 0, type=str);
+    print(input)
+    Comment(int(input)).downvote()
+    return jsonify(result = input);
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -188,33 +223,6 @@ def login():
             return redirect(url_for('welcome'))
     return render_template("login.html", title = "Log In")
 
-@app.route('/upvotePost')
-def upvotePost():
-    input = request.args.get("input", 0, type=str);
-    print(input)
-    Post(int(input)).upvoted()
-    return jsonify(result = input);
-
-@app.route('/downvotePost')
-def downvotePost():
-    input = request.args.get("input", 0, type=str);
-    print(input)
-    Post(int(input)).downvoted()
-    return jsonify(result = input);
-
-@app.route('/upvoteComment')
-def upvoteComment():
-    input = request.args.get("input", 0, type=str);
-    print(input)
-    Comment(int(input)).upvote()
-    return jsonify(result = input);
-
-@app.route('/downvoteComment')
-def downvoteComment():
-    input = request.args.get("input", 0, type=str);
-    print(input)
-    Comment(int(input)).downvote()
-    return jsonify(result = input);
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():

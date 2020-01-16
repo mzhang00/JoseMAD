@@ -18,17 +18,17 @@
           {% endfor %}
         </div>
         <div class="small-12">By <strong>{{post.get_author().username}}</strong> <span style="float:right;">{{post.time_created}}</span> </div><br>
-        <div class="small-12" style="word-wrap: break-word;">
-          {{post.content}}
+        <div class="small-12 post-desc" style="word-wrap:break-word;">
+          <p style="margin-left:0.5%;margin-right:0.5%">{{post.content}}</p>
         </div>
         <br>
-        <div class="small-4 upvote" id="{{post.id}}">
+        <div class="small-4 upvote" id="{{post.id}}" style="margin-left:85%;width:5%">
           <h4 class="upvote" id="{{post.id}}">⬆️</h4>
         </div>
-        <div class="small-4 downvote" id="{{post.id}}">
+        <div class="small-4 downvote" id="{{post.id}}" style="width:5%">
           <h4 class="downvote" id="{{post.id}}">⬇️</h4>
         </div>
-        <div class="small-4">
+        <div>
           <h4 class="votes" id="{{post.id}}">{{post.net_vote}}</h4>
         </div>
         <a class="button expanded small-12" href="{{ url_for('show_post', qaf_id = qaf.id, post_id=post.id) }}"> Continue the Discussion </a>

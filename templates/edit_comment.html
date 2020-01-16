@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid-x">
+    <h2 class="small-12">Edit Comment</h2>
+    <form class="form-group formBorder small-10 small-offset-1" method="post">
+    <textarea id="content" name="content" rows="10" cols="100" placeholder="Type comment here...">{{ comment.content }}</textarea>
+    <input class="expanded button" type="submit" value="Submit">
+  </form>
+</div>
+
+{% endblock content %}
