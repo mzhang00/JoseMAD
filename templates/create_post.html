@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <br>
-  <form class="form-group" method="post">
-    <input type="submit" value="Submit">
-    <input name = "title" type="text" placeholder='Title'>
-    <input name = "tags" type="text" placeholder='Tags'>
+<br>
+<div class="grid-x">
+  <h2 class="small-12">Start A Discussion</h2>
+  <form class="form-group formBorder small-10 small-offset-1" method="post">
+    <input class="textInput" name="title" type="text" placeholder='Title'>
     <br>
-    <input name = "content" type="text" >
+    <input class="textInput" name="tags" type="text" placeholder='Tags'>
+    <br>
+    <input class="expanded button" type="submit" value="Submit">
   </form>
+</div>
 {% endblock content %}

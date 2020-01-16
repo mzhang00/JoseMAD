@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <br>
-<form class="form-group" method="post">
-  <input name = "name" type="text" placeholder='Name'>
-  <br>
-  <input type="submit" value="Submit">
-</form>
+<div class="grid-x">
+  <h2 class="small-12">Create Your QAF</h2>
+  <form class="form-group formBorder small-10 small-offset-1" method="post">
+    <input class="textInput" name="name" type="text" placeholder='Name'>
+    <br>
+    <input class="expanded button"type="submit" value="Submit">
+  </form>
+</div>
 {% endblock content%}
