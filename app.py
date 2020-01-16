@@ -174,6 +174,20 @@ def login():
             return redirect(url_for('welcome'))
     return render_template("login.html", title = "Log In")
 
+@app.route('/upvotePost')
+def upvotePost():
+    input = request.args.get("input", 0, type=str);
+    print(input)
+    Post(int(input)).upvoted()
+    return jsonify(result = input);
+
+@app.route('/downvotePost')
+def downvotePost():
+    input = request.args.get("input", 0, type=str);
+    print(input)
+    Post(int(input)).downvoted()
+    return jsonify(result = input);
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     # check if form was submitted
