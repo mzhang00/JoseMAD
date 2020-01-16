@@ -39,17 +39,17 @@
       <div class="small-12">
         {% if comment.author_id == current_user.id %}
           <form class="form-group" method="post">
-            <strong class="small-6">{{comment.author}}</strong>
+            <strong class="small-6">{{comment.author}}</strong><span style="float:right;margin-right:50px">{{comment.time_created}}</span>
             <button type="submit" class="button" name='comment_id' value="{{ comment.id }}"> Edit </button>
           </form>
         {%else %}
-          <strong class="small-6">{{comment.author}}</strong>
+          <strong class="small-6">{{comment.author}}</strong><span style="float:right;margin-right:50px">{{comment.time_created}}</span>
         {% endif %}
       </div>
       <div class="small-12">
         <br>
       </div>
-      <div class="small-12" id='content' style="word-wrap: break-word;">{{comment.content}} <span style="float:right;margin-right:50px">{{comment.time_created}}</span></div>
+      <div class="small-12" id='content' style="word-wrap: break-word;">{{comment.content}}</div>
       <div class="small-4 upvote" id="{{comment.id}}" style="margin-left:85%;width:5%">
         <h4 class="upvote" id="{{comment.id}}">⬆️</h4>
       </div>

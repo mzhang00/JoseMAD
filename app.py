@@ -90,7 +90,7 @@ def my_posts():
 @app.route("/settings", methods=['GET','POST'])
 def settings():
     if current_user() == None: # have to be logged in to change settings
-        flash('You must log in to access this page')
+        flash('You must be logged in to access this page')
         return redirect(url_for('login'))
     form = request.form.keys()
     if 'oldpass' in form and 'newpass' in form and 'confirm' in form:
@@ -116,7 +116,7 @@ def my_qafs():
 @app.route('/create_qaf', methods=['GET', 'POST'])
 def create_qaf():
     if current_user() == None:
-        flash('You must log in to access this page')
+        flash('You must be logged in to access this page')
         return redirect( url_for( 'login'))
     if (request.form):
         entry = request.form
