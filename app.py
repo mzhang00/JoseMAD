@@ -51,7 +51,7 @@ def qafSearch():
     input = request.args.get("input", 0, type=str)
     if(input == ""):
         return jsonify(result = "");
-    output = execute(f"""SELECT * FROM 'qafs' WHERE name LIKE '%{input}%';""").fetchall()
+    output = execute(f"""SELECT * FROM 'qafs' WHERE name LIKE '%{input}%' AND mode = 'public';""").fetchall()
     print(output)
     return jsonify(result = output);
 
@@ -120,7 +120,7 @@ def create_qaf():
         return redirect( url_for( 'login'))
     if (request.form):
         entry = request.form
-        new_qaf = Qaf.new_qaf(entry['name'], current_user().id)
+        new_qaf = Qaf.new_qaf(entry['name'], current_user().id, entry['mode'])
         current_user().join_qaf(new_qaf)
         flash("QAF created successfully")
         return redirect(url_for('my_qafs'))
@@ -158,7 +158,7 @@ def show_post(qaf_id,post_id):
         return redirect(url_for('edit_title', post = request.form['post_id']))
     if('comment_id' in request.form):
         return redirect(url_for('edit_comment', comment = request.form['comment_id']))
-        
+
     post = Post(post_id)
     comments = post.get_comments()
     return render_template('post.html', title = post.title, post = post, comments = comments, author = User(post.author_id).username)

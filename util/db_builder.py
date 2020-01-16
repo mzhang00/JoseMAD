@@ -32,5 +32,5 @@ comments_command = "CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY,
 execute(comments_command)
 
 # QAF table (containing all QAFs)
-qafs_command = "CREATE TABLE IF NOT EXISTS qafs (id INTEGER PRIMARY KEY, name TEXT, owner_id INTEGER)"
+qafs_command = "CREATE TABLE IF NOT EXISTS qafs (id INTEGER PRIMARY KEY, name TEXT, owner_id INTEGER, mode TEXT)"
 execute(qafs_command)

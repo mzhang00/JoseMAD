@@ -10,6 +10,7 @@ class Qaf:
 		self.id = int(data[0][0])
 		self.name = str(data[0][1])
 		self.owner_id = int(data[0][2])
+		self.mode = str(data[0][3])
 		self.owner = util.user.User(self.owner_id).username
 
 	def get_posts(self):
@@ -22,7 +23,7 @@ class Qaf:
 
 	#adds QAF into database
 	@staticmethod
-	def new_qaf(name, owner_id):
-		command = 'INSERT INTO qafs (name, owner_id) VALUES ("{}", "{}")'.format(name, owner_id)
+	def new_qaf(name, owner_id, mode):
+		command = 'INSERT INTO qafs (name, owner_id, mode) VALUES ("{}", "{}", "{}")'.format(name, owner_id, mode)
 		cursor = execute(command)
 		return cursor.lastrowid
