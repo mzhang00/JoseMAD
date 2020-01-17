@@ -21,3 +21,5 @@ Copy and paste the following commands in the following order into your terminal!
 - `python3 app.py`
 
 To exit the program, press Ctrl + C and type `deactivate`
+
+#### [Link to Video](https://youtu.be/CM4tbrNX18M)
