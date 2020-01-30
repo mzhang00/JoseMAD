@@ -258,5 +258,7 @@ def signup():
     return render_template('signup.html', title = 'Sign Up')
 
 if __name__ == "__main__":
+    DIR = os.path.dirname(__file__)
+    DIR += '/'
     app.debug = True
-    app.run()
+    app.run(host='0.0.0.0')
